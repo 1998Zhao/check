@@ -10,9 +10,6 @@ public class AggregationLevel implements IMetadata{
         return aggregationLevel;
     }
 
-    public void setAggregationLevel(String aggregationLevel) {
-        this.aggregationLevel = aggregationLevel;
-    }
 
     public AggregationLevel() {
     }

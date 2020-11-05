@@ -1,9 +1,12 @@
 package com.goxda.check.metadate;
 
+import lombok.Data;
+
 /**
  *  内容描述
  * @author zgq
  */
+@Data
 public class ContentDescription implements IMetadata{
     /**
      * 内容描述
@@ -98,155 +101,5 @@ public class ContentDescription implements IMetadata{
      */
     private String secrecyPeriod;
 
-    public String getContentDescription() {
-        return contentDescription;
-    }
 
-    public void setContentDescription(String contentDescription) {
-        this.contentDescription = contentDescription;
-    }
-
-    public String getTitle() {
-        return title;
-    }
-
-    public void setTitle(String title) {
-        this.title = title;
-    }
-
-    public String getParallelTitle() {
-        return parallelTitle;
-    }
-
-    public void setParallelTitle(String parallelTitle) {
-        this.parallelTitle = parallelTitle;
-    }
-
-    public String getAlternativeTitle() {
-        return alternativeTitle;
-    }
-
-    public void setAlternativeTitle(String alternativeTitle) {
-        this.alternativeTitle = alternativeTitle;
-    }
-
-    public String getOtherTitleInformation() {
-        return otherTitleInformation;
-    }
-
-    public void setOtherTitleInformation(String otherTitleInformation) {
-        this.otherTitleInformation = otherTitleInformation;
-    }
-
-    public String getDescriptor() {
-        return descriptor;
-    }
-
-    public void setDescriptor(String descriptor) {
-        this.descriptor = descriptor;
-    }
-
-    public String getKeyword() {
-        return keyword;
-    }
-
-    public void setKeyword(String keyword) {
-        this.keyword = keyword;
-    }
-
-    public String getPersonalName() {
-        return personalName;
-    }
-
-    public void setPersonalName(String personalName) {
-        this.personalName = personalName;
-    }
-
-    public String getAbstracts() {
-        return abstracts;
-    }
-
-    public void setAbstracts(String abstracts) {
-        this.abstracts = abstracts;
-    }
-
-    public String getClassCode() {
-        return classCode;
-    }
-
-    public void setClassCode(String classCode) {
-        this.classCode = classCode;
-    }
-
-    public String getDocumentNumber() {
-        return documentNumber;
-    }
-
-    public void setDocumentNumber(String documentNumber) {
-        this.documentNumber = documentNumber;
-    }
-
-    public String getAuthor() {
-        return author;
-    }
-
-    public void setAuthor(String author) {
-        this.author = author;
-    }
-
-    public String getDate() {
-        return date;
-    }
-
-    public void setDate(String date) {
-        this.date = date;
-    }
-
-    public String getDocumentType() {
-        return documentType;
-    }
-
-    public void setDocumentType(String documentType) {
-        this.documentType = documentType;
-    }
-
-    public String getPrecedence() {
-        return precedence;
-    }
-
-    public void setPrecedence(String precedence) {
-        this.precedence = precedence;
-    }
-
-    public String getPrincipalReceiver() {
-        return principalReceiver;
-    }
-
-    public void setPrincipalReceiver(String principalReceiver) {
-        this.principalReceiver = principalReceiver;
-    }
-
-    public String getOtherReceivers() {
-        return otherReceivers;
-    }
-
-    public void setOtherReceivers(String otherReceivers) {
-        this.otherReceivers = otherReceivers;
-    }
-
-    public String getSecurityClassification() {
-        return securityClassification;
-    }
-
-    public void setSecurityClassification(String securityClassification) {
-        this.securityClassification = securityClassification;
-    }
-
-    public String getSecrecyPeriod() {
-        return secrecyPeriod;
-    }
-
-    public void setSecrecyPeriod(String secrecyPeriod) {
-        this.secrecyPeriod = secrecyPeriod;
-    }
 }

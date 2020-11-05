@@ -1,9 +1,12 @@
 package com.goxda.check.metadate;
 
+import lombok.Data;
+
 /**
  * 档号
  * @author zgq
  */
+@Data
 public class ArchivalCode {
     /**
      * 档号
@@ -66,107 +69,5 @@ public class ArchivalCode {
      */
     private String pageNumber;
 
-    public String getArchivalCode() {
-        return archivalCode;
-    }
 
-    public void setArchivalCode(String archivalCode) {
-        this.archivalCode = archivalCode;
-    }
-
-    public String getFondsIdentifier() {
-        return fondsIdentifier;
-    }
-
-    public void setFondsIdentifier(String fondsIdentifier) {
-        this.fondsIdentifier = fondsIdentifier;
-    }
-
-    public String getCatalogueNumber() {
-        return catalogueNumber;
-    }
-
-    public void setCatalogueNumber(String catalogueNumber) {
-        this.catalogueNumber = catalogueNumber;
-    }
-
-    public String getYear() {
-        return year;
-    }
-
-    public void setYear(String year) {
-        this.year = year;
-    }
-
-    public String getRetentionPeriod() {
-        return retentionPeriod;
-    }
-
-    public void setRetentionPeriod(String retentionPeriod) {
-        this.retentionPeriod = retentionPeriod;
-    }
-
-    public String getOrganizationalStructureOrFunction() {
-        return organizationalStructureOrFunction;
-    }
-
-    public void setOrganizationalStructureOrFunction(String organizationalStructureOrFunction) {
-        this.organizationalStructureOrFunction = organizationalStructureOrFunction;
-    }
-
-    public String getCategoryCode() {
-        return categoryCode;
-    }
-
-    public void setCategoryCode(String categoryCode) {
-        this.categoryCode = categoryCode;
-    }
-
-    public String getAgencyFileNumber() {
-        return agencyFileNumber;
-    }
-
-    public void setAgencyFileNumber(String agencyFileNumber) {
-        this.agencyFileNumber = agencyFileNumber;
-    }
-
-    public String getArchivesFileNumber() {
-        return archivesFileNumber;
-    }
-
-    public void setArchivesFileNumber(String archivesFileNumber) {
-        this.archivesFileNumber = archivesFileNumber;
-    }
-
-    public int getAgencyItemNumber() {
-        return agencyItemNumber;
-    }
-
-    public void setAgencyItemNumber(int agencyItemNumber) {
-        this.agencyItemNumber = agencyItemNumber;
-    }
-
-    public int getArchivesItemNumber() {
-        return archivesItemNumber;
-    }
-
-    public void setArchivesItemNumber(int archivesItemNumber) {
-        this.archivesItemNumber = archivesItemNumber;
-    }
-
-    public String getDocumentSequenceNumber() {
-        return documentSequenceNumber;
-    }
-
-    public void setDocumentSequenceNumber(String documentSequenceNumber) {
-        this.documentSequenceNumber = documentSequenceNumber;
-    }
-
-    public String getPageNumber() {
-        return pageNumber;
-    }
-
-    public void setPageNumber(String pageNumber) {
-        this.pageNumber = pageNumber;
-    }
 }

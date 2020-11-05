@@ -19,40 +19,19 @@ public class Provenance implements IMetadata{
         return provenance;
     }
 
-    public void setProvenance(String provenance) {
-        this.provenance = provenance;
-    }
-
     public String getArchivesName() {
         return archivesName;
-    }
-
-    public void setArchivesName(String archivesName) {
-        this.archivesName = archivesName;
     }
 
     public String getArchivesIdentifier() {
         return archivesIdentifier;
     }
 
-    public void setArchivesIdentifier(String archivesIdentifier) {
-        this.archivesIdentifier = archivesIdentifier;
-    }
-
     public String getFondsName() {
         return fondsName;
-    }
-
-    public void setFondsName(String fondsName) {
-        this.fondsName = fondsName;
     }
 
     public String getFondsConstitutingUnitName() {
         return fondsConstitutingUnitName;
     }
-
-    public void setFondsConstitutingUnitName(String fondsConstitutingUnitName) {
-        this.fondsConstitutingUnitName = fondsConstitutingUnitName;
-    }
-
 }

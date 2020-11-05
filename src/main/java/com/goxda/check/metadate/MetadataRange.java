@@ -8,18 +8,18 @@ import java.util.Map;
  * @author zgq
  */
 public class MetadataRange {
-    public static Map<String,String[]> aggregationLevelMap = new HashMap<String, String[]>();
+    public static Map<String,String[]> aggregationLevelMap = new HashMap<>();
     public static String[] aggregationLevels ={"文件","案卷"};
-    public static Map<String,String[]> sourceMap =new HashMap<String, String[]>();
-    public static Map<String,String[]> archivalCodeMap = new HashMap<String, String[]>();
-    public static Map<String,String[]> contentDescriptionMap =new HashMap<String, String[]>();
-    public static Map<String,String[]> formalCharacteristicsMap = new HashMap<String, String[]>();
-    public static Map<String,String[]> electronicAttributesMap =new HashMap<String, String[]>();
-    public static Map<String,String[]> digitizationAttributesMap = new HashMap<String, String[]>();
-    public static Map<String,String[]> electronicSignatureMap =new HashMap<String, String[]>();
-    public static Map<String,String[]> storageLocationMap = new HashMap<String, String[]>();
-    public static Map<String,String[]> rightsManagementMap = new HashMap<String, String[]>();
-    public static Map<String,String[]> annotationMap = new HashMap<String, String[]>();
+    public static Map<String,String[]> sourceMap = new HashMap<>();
+    public static Map<String,String[]> archivalCodeMap = new HashMap<>();
+    public static Map<String,String[]> contentDescriptionMap = new HashMap<>();
+    public static Map<String,String[]> formalCharacteristicsMap = new HashMap<>();
+    public static Map<String,String[]> electronicAttributesMap = new HashMap<>();
+    public static Map<String,String[]> digitizationAttributesMap = new HashMap<>();
+    public static Map<String,String[]> electronicSignatureMap = new HashMap<>();
+    public static Map<String,String[]> storageLocationMap = new HashMap<>();
+    public static Map<String,String[]> rightsManagementMap = new HashMap<>();
+    public static Map<String,String[]> annotationMap = new HashMap<>();
     public static String[] annotation ={"文件","案卷"};
     static {
         annotationMap.put("annotation",annotation);

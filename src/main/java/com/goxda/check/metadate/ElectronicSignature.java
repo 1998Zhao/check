@@ -1,5 +1,7 @@
 package com.goxda.check.metadate;
 
+import lombok.Data;
+
 import java.util.Date;
 
 /**
@@ -8,6 +10,7 @@ import java.util.Date;
  * 子元素	签名规则（M58）签名时间（M59）签名人（M60）签名结果（M61）证书（M62）证书引证（M63）签名算法标识（M64）
  * @author zgq
  */
+@Data
 public class ElectronicSignature implements IMetadata{
     /**
      * 签名规则
@@ -45,59 +48,5 @@ public class ElectronicSignature implements IMetadata{
      */
     private String signatureAlgorithmIdentifier;
 
-    public String getSignatureRules() {
-        return signatureRules;
-    }
 
-    public void setSignatureRules(String signatureRules) {
-        this.signatureRules = signatureRules;
-    }
-
-    public Date getSignatureTime() {
-        return signatureTime;
-    }
-
-    public void setSignatureTime(Date signatureTime) {
-        this.signatureTime = signatureTime;
-    }
-
-    public String getSigner() {
-        return signer;
-    }
-
-    public void setSigner(String signer) {
-        this.signer = signer;
-    }
-
-    public String getSignature() {
-        return signature;
-    }
-
-    public void setSignature(String signature) {
-        this.signature = signature;
-    }
-
-    public String getCertificate() {
-        return certificate;
-    }
-
-    public void setCertificate(String certificate) {
-        this.certificate = certificate;
-    }
-
-    public String getCertificateReference() {
-        return certificateReference;
-    }
-
-    public void setCertificateReference(String certificateReference) {
-        this.certificateReference = certificateReference;
-    }
-
-    public String getSignatureAlgorithmIdentifier() {
-        return signatureAlgorithmIdentifier;
-    }
-
-    public void setSignatureAlgorithmIdentifier(String signatureAlgorithmIdentifier) {
-        this.signatureAlgorithmIdentifier = signatureAlgorithmIdentifier;
-    }
 }

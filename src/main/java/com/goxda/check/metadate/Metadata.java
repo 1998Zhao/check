@@ -1,9 +1,14 @@
 package com.goxda.check.metadate;
 
+import lombok.Data;
+
+import java.util.Date;
+
 /**
  * 元数据
  * @author admin
  */
+@Data
 public class Metadata {
     /**
      * 聚合层次
@@ -92,100 +97,316 @@ public class Metadata {
      * 电子文件和元数据中需要解释和补充说明的事项
      */
     private Annotation annotation;
-
-    public Provenance getProvenance() {
-        return provenance;
+    private String agentType;
+    private String agentName;
+    private String organizationCode;
+    private String positionName;
+    private String businessStatus;
+    private String businessActivity;
+    private String actionTime;
+    private String actionMandate;
+    private String actionDescription;
+    private String entityIdentifier;
+    private String relationType;
+    private String relation;
+    private String relationDescription;
+    public String getAggregationLevel() {
+        return aggregationLevel.getAggregationLevel();
+    }
+    public String getProvenance() {
+        return provenance.getProvenance();
     }
 
-    public void setProvenance(Provenance provenance) {
-        this.provenance = provenance;
+    public String getArchivesName() {
+        return provenance.getArchivesName();
     }
 
-    public ArchivalCode getArchivalCode() {
-        return archivalCode;
+    public String getArchivesIdentifier() {
+        return provenance.getArchivesIdentifier();
     }
 
-    public void setArchivalCode(ArchivalCode archivalCode) {
-        this.archivalCode = archivalCode;
+    public String getFondsName() {
+        return provenance.getFondsName();
     }
 
-    public ContentDescription getContentDescription() {
-        return contentDescription;
+    public String getFondsConstitutingUnitName() {
+        return provenance.getFondsConstitutingUnitName();
+    }
+    public String getElectronicRecordCode() {
+        return electronicRecordCode.getElectronicRecordCode();
     }
 
-    public void setContentDescription(ContentDescription contentDescription) {
-        this.contentDescription = contentDescription;
+    public String getArchivalCode() {
+        return archivalCode.getArchivalCode();
     }
 
-    public FormalCharacteristics getFormalCharacteristics() {
-        return formalCharacteristics;
+    public String getFondsIdentifier() {
+        return archivalCode.getFondsIdentifier();
     }
 
-    public void setFormalCharacteristics(FormalCharacteristics formalCharacteristics) {
-        this.formalCharacteristics = formalCharacteristics;
+    public String getCatalogueNumber() {
+        return archivalCode.getCatalogueNumber();
     }
 
-    public ElectronicAttributes getElectronicAttributes() {
-        return electronicAttributes;
+    public String getYear() {
+        return archivalCode.getYear();
     }
 
-    public void setElectronicAttributes(ElectronicAttributes electronicAttributes) {
-        this.electronicAttributes = electronicAttributes;
+    public String getRetentionPeriod() {
+        return archivalCode.getRetentionPeriod();
     }
 
-    public DigitizationAttributes getDigitizationAttributes() {
-        return digitizationAttributes;
+    public String getOrganizationalStructureOrFunction() {
+        return archivalCode.getOrganizationalStructureOrFunction();
     }
 
-    public void setDigitizationAttributes(DigitizationAttributes digitizationAttributes) {
-        this.digitizationAttributes = digitizationAttributes;
+    public String getCategoryCode() {
+        return archivalCode.getCategoryCode();
     }
 
-    public ElectronicSignature getElectronicSignature() {
-        return electronicSignature;
+    public String getAgencyFileNumber() {
+        return archivalCode.getAgencyFileNumber();
     }
 
-    public void setElectronicSignature(ElectronicSignature electronicSignature) {
-        this.electronicSignature = electronicSignature;
+    public String getArchivesFileNumber() {
+        return archivalCode.getArchivesFileNumber();
     }
 
-    public StorageLocation getStorageLocation() {
-        return storageLocation;
+    public int getAgencyItemNumber() {
+        return archivalCode.getAgencyItemNumber();
     }
 
-    public void setStorageLocation(StorageLocation storageLocation) {
-        this.storageLocation = storageLocation;
+    public int getArchivesItemNumber() {
+        return archivalCode.getArchivesItemNumber();
     }
 
-    public RightsManagement getRightsManagement() {
-        return rightsManagement;
+    public String getDocumentSequenceNumber() {
+        return archivalCode.getDocumentSequenceNumber();
     }
 
-    public void setRightsManagement(RightsManagement rightsManagement) {
-        this.rightsManagement = rightsManagement;
+    public String getPageNumber() {
+        return archivalCode.getPageNumber();
+    }
+    public String getContentDescription() {
+        return contentDescription.getContentDescription();
     }
 
-    public AggregationLevel getAggregationLevel() {
-        return aggregationLevel;
+
+    public String getTitle() {
+        return contentDescription.getTitle();
     }
 
-    public void setAggregationLevel(AggregationLevel aggregationLevel) {
-        this.aggregationLevel = aggregationLevel;
+
+    public String getParallelTitle() {
+        return contentDescription.getParallelTitle();
     }
 
-    public ElectronicRecordCode getElectronicRecordCode() {
-        return electronicRecordCode;
+
+    public String getAlternativeTitle() {
+        return contentDescription.getAlternativeTitle();
     }
 
-    public void setElectronicRecordCode(ElectronicRecordCode electronicRecordCode) {
-        this.electronicRecordCode = electronicRecordCode;
+
+    public String getOtherTitleInformation() {
+        return contentDescription.getOtherTitleInformation();
     }
 
-    public Annotation getAnnotation() {
-        return annotation;
+    public String getDescriptor() {
+        return contentDescription.getDescriptor();
     }
 
-    public void setAnnotation(Annotation annotation) {
-        this.annotation = annotation;
+
+    public String getKeyword() {
+        return contentDescription.getKeyword();
+    }
+
+    public String getPersonalName() {
+        return contentDescription.getPersonalName();
+    }
+
+    public String getAbstracts() {
+        return contentDescription.getAbstracts();
+    }
+
+
+    public String getClassCode() {
+        return contentDescription.getClassCode();
+    }
+
+
+    public String getDocumentNumber() {
+        return contentDescription.getDocumentNumber();
+    }
+
+
+    public String getAuthor() {
+        return contentDescription.getAuthor();
+    }
+
+    public String getDate() {
+        return contentDescription.getDate();
+    }
+
+
+    public String getDocumentType() {
+        return contentDescription.getDocumentType();
+    }
+
+
+    public String getPrecedence() {
+        return contentDescription.getPrecedence();
+    }
+
+
+    public String getPrincipalReceiver() {
+        return contentDescription.getPrincipalReceiver();
+    }
+
+
+    public String getOtherReceivers() {
+        return contentDescription.getOtherReceivers();
+    }
+
+
+    public String getSecurityClassification() {
+        return contentDescription.getSecurityClassification();
+    }
+
+
+    public String getSecrecyPeriod() {
+        return contentDescription.getSecrecyPeriod();
+    }
+    public String getFormalCharacteristics() {
+        return formalCharacteristics.getFormalCharacteristics();
+    }
+
+    public String getDocumentAggregationType() {
+        return formalCharacteristics.getDocumentAggregationType();
+    }
+
+    public int getTotalNumberOfItems() {
+        return formalCharacteristics.getTotalNumberOfItems();
+    }
+
+    public int getTotalNumberOfPages() {
+        return formalCharacteristics.getTotalNumberOfPages();
+    }
+
+    public String getLanguage() {
+        return formalCharacteristics.getLanguage();
+    }
+
+    public String getManuscriptType() {
+        return formalCharacteristics.getManuscriptType();
+    }
+    public String getElectronicAttributes() {
+        return electronicAttributes.getElectronicAttributes();
+    }
+
+    public String getFormatInformation() {
+        return electronicAttributes.getFormatInformation();
+    }
+
+    public String getComputerFileName() {
+        return electronicAttributes.getComputerFileName();
+    }
+
+    public String getComputerFileSize() {
+        return electronicAttributes.getComputerFileSize();
+    }
+
+    public String getDocumentCreatingApplication() {
+        return electronicAttributes.getDocumentCreatingApplication();
+    }
+
+    public String getInformationSystemDescription() {
+        return electronicAttributes.getInformationSystemDescription();
+    }
+    public String getDigitizationAttributes() {
+        return digitizationAttributes.getDigitizationAttributes();
+    }
+
+    public String getPhysicalRecordCharacteristics() {
+        return digitizationAttributes.getPhysicalRecordCharacteristics();
+    }
+
+    public String getScanningResolution() {
+        return digitizationAttributes.getScanningResolution();
+    }
+
+    public String getScanningColorModel() {
+        return digitizationAttributes.getScanningColorModel();
+    }
+
+    public String getImageCompressionScheme() {
+        return digitizationAttributes.getImageCompressionScheme();
+    }
+    public String getSignatureRules() {
+        return electronicSignature.getSignatureRules();
+    }
+
+    public Date getSignatureTime() {
+        return electronicSignature.getSignatureTime();
+    }
+
+    public String getSigner() {
+        return electronicAttributes.getComputerFileName();
+    }
+
+    public String getSignature() {
+        return electronicSignature.getSignature();
+    }
+
+    public String getCertificate() {
+        return electronicAttributes.getComputerFileName();
+    }
+
+    public String getCertificateReference() {
+        return electronicAttributes.getComputerFileName();
+    }
+
+    public String getSignatureAlgorithmIdentifier() {
+        return electronicSignature.getSignatureAlgorithmIdentifier();
+    }
+    public String getStorageLocation() {
+        return storageLocation.getStorageLocation();
+    }
+
+    public String getCurrentLocation() {
+        return storageLocation.getCurrentLocation();
+    }
+
+    public String getOfflineMediumIdentifier() {
+        return storageLocation.getOfflineMediumIdentifier();
+    }
+
+    public String getOfflineMediumStorageLocation() {
+        return storageLocation.getOfflineMediumStorageLocation();
+    }
+
+    public String getMicroformIdentifier() {
+        return storageLocation.getMicroformIdentifier();
+    }
+    public String getRightsManagement() {
+        return rightsManagement.getRightsManagement();
+    }
+
+    public String getIntellectualPropertyStatement() {
+        return rightsManagement.getIntellectualPropertyStatement();
+    }
+
+    public String getAuthorizedAgent() {
+        return rightsManagement.getAuthorizedAgent();
+    }
+
+    public String getPermissionAssignment() {
+        return rightsManagement.getPermissionAssignment();
+    }
+
+    public String getControlIdentifier() {
+        return rightsManagement.getControlIdentifier();
+    }
+    public String getAnnotation() {
+        return annotation.getAnnotation();
     }
 }

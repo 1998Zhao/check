@@ -44,47 +44,23 @@ public class FormalCharacteristics implements IMetadata{
         return formalCharacteristics;
     }
 
-    public void setFormalCharacteristics(String formalCharacteristics) {
-        this.formalCharacteristics = formalCharacteristics;
-    }
-
     public String getDocumentAggregationType() {
         return documentAggregationType;
-    }
-
-    public void setDocumentAggregationType(String documentAggregationType) {
-        this.documentAggregationType = documentAggregationType;
     }
 
     public int getTotalNumberOfItems() {
         return totalNumberOfItems;
     }
 
-    public void setTotalNumberOfItems(int totalNumberOfItems) {
-        this.totalNumberOfItems = totalNumberOfItems;
-    }
-
     public int getTotalNumberOfPages() {
         return totalNumberOfPages;
-    }
-
-    public void setTotalNumberOfPages(int totalNumberOfPages) {
-        this.totalNumberOfPages = totalNumberOfPages;
     }
 
     public String getLanguage() {
         return language;
     }
 
-    public void setLanguage(String language) {
-        this.language = language;
-    }
-
     public String getManuscriptType() {
         return manuscriptType;
-    }
-
-    public void setManuscriptType(String manuscriptType) {
-        this.manuscriptType = manuscriptType;
     }
 }

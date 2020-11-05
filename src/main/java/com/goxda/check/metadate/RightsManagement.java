@@ -1,9 +1,12 @@
 package com.goxda.check.metadate;
 
+import lombok.Data;
+
 /**
  *
  * @author zgq
  */
+@Data
 public class RightsManagement implements IMetadata{
     private String rightsManagement;
     /**
@@ -27,43 +30,5 @@ public class RightsManagement implements IMetadata{
      */
     private String controlIdentifier;
 
-    public String getRightsManagement() {
-        return rightsManagement;
-    }
 
-    public void setRightsManagement(String rightsManagement) {
-        this.rightsManagement = rightsManagement;
-    }
-
-    public String getIntellectualPropertyStatement() {
-        return intellectualPropertyStatement;
-    }
-
-    public void setIntellectualPropertyStatement(String intellectualPropertyStatement) {
-        this.intellectualPropertyStatement = intellectualPropertyStatement;
-    }
-
-    public String getAuthorizedAgent() {
-        return authorizedAgent;
-    }
-
-    public void setAuthorizedAgent(String authorizedAgent) {
-        this.authorizedAgent = authorizedAgent;
-    }
-
-    public String getPermissionAssignment() {
-        return permissionAssignment;
-    }
-
-    public void setPermissionAssignment(String permissionAssignment) {
-        this.permissionAssignment = permissionAssignment;
-    }
-
-    public String getControlIdentifier() {
-        return controlIdentifier;
-    }
-
-    public void setControlIdentifier(String controlIdentifier) {
-        this.controlIdentifier = controlIdentifier;
-    }
 }

@@ -1,11 +1,14 @@
 package com.goxda.check.metadate;
 
+import lombok.Data;
+
 /**
  * 文件或档案数字化的一组关键特征描述
  * 数字化属性
  * 子元素 数字化对象形态（M53）扫描分辨率（M54）扫描色彩模式（M55）图像压缩方案（M56）
  * @author zgq
  */
+@Data
 public class DigitizationAttributes implements IMetadata{
     private String digitizationAttributes;
     /**
@@ -29,43 +32,5 @@ public class DigitizationAttributes implements IMetadata{
      */
     private String imageCompressionScheme;
 
-    public String getDigitizationAttributes() {
-        return digitizationAttributes;
-    }
 
-    public void setDigitizationAttributes(String digitizationAttributes) {
-        this.digitizationAttributes = digitizationAttributes;
-    }
-
-    public String getPhysicalRecordCharacteristics() {
-        return physicalRecordCharacteristics;
-    }
-
-    public void setPhysicalRecordCharacteristics(String physicalRecordCharacteristics) {
-        this.physicalRecordCharacteristics = physicalRecordCharacteristics;
-    }
-
-    public String getScanningResolution() {
-        return scanningResolution;
-    }
-
-    public void setScanningResolution(String scanningResolution) {
-        this.scanningResolution = scanningResolution;
-    }
-
-    public String getScanningColorModel() {
-        return scanningColorModel;
-    }
-
-    public void setScanningColorModel(String scanningColorModel) {
-        this.scanningColorModel = scanningColorModel;
-    }
-
-    public String getImageCompressionScheme() {
-        return imageCompressionScheme;
-    }
-
-    public void setImageCompressionScheme(String imageCompressionScheme) {
-        this.imageCompressionScheme = imageCompressionScheme;
-    }
 }
