@@ -1,6 +1,6 @@
 package com.goxda.check;
 
-import com.goxda.check.api.entity.Metadata;
+import com.goxda.check.api.entity.MetadataRule;
 import lombok.extern.slf4j.Slf4j;
 import org.apache.poi.xwpf.usermodel.XWPFDocument;
 import org.apache.poi.xwpf.usermodel.XWPFTable;
@@ -14,20 +14,20 @@ import java.util.List;
 
 @Slf4j
 public class Word {
-    public static List<Metadata> read(){
+    public static List<MetadataRule> read(){
         String path = "C:\\Users\\admin\\Desktop\\22.docx";
         FileInputStream inputStream;
         XWPFDocument xwpfDocument;
-        Metadata metadata ;
+        MetadataRule metadata ;
         Field[] fields;
         String v = null;
-        List<Metadata> datas = new ArrayList<>();
+        List<MetadataRule> datas = new ArrayList<>();
         try {
             inputStream = new FileInputStream(path);
             xwpfDocument = new XWPFDocument(inputStream);
             List<XWPFTable> list = xwpfDocument.getTables();
             for (XWPFTable xwpfTable : list) {
-                metadata = new Metadata();
+                metadata = new MetadataRule();
                 List<XWPFTableRow> rowList = xwpfTable.getRows();
                 for (int i = 0; i < rowList.size(); i++) {
                     v = rowList.get(i).getCell(1).getText();

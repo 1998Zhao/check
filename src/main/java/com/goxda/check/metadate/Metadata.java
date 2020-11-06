@@ -110,6 +110,9 @@ public class Metadata {
     private String relationType;
     private String relation;
     private String relationDescription;
+    public String getArchivalCodeRule(){
+        return archivalCode.getArchivalCodeRule();
+    }
     public String getAggregationLevel() {
         return aggregationLevel.getAggregationLevel();
     }

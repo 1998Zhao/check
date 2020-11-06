@@ -9,6 +9,11 @@ import lombok.Data;
 @Data
 public class ArchivalCode {
     /**
+     * 档号规则
+     * 由哪几个部分构成
+     */
+    private String archivalCodeRule;
+    /**
      * 档号
      */
     private String archivalCode;
