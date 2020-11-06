@@ -3,18 +3,22 @@ package com.goxda.check.check.authenticity.impl;
 import cn.hutool.core.util.ArrayUtil;
 import cn.hutool.core.util.StrUtil;
 import com.goxda.check.api.entity.CheckStep;
+import com.goxda.check.api.entity.Metadata;
 import com.goxda.check.api.entity.MetadataRule;
+import com.goxda.check.api.service.impl.MetadataServiceImpl;
 import com.goxda.check.check.authenticity.IAuthenticity;
-import com.goxda.check.metadate.Metadata;
+
+import com.goxda.check.factory.MetadataServiceSingle;
 import com.goxda.check.metadate.aip.ArchivalInformationPackage;
 import com.goxda.check.metadate.fixity.FixityInformation;
 import com.goxda.check.result.Result;
 import com.goxda.check.util.Utils;
 import lombok.extern.slf4j.Slf4j;
 
+import java.io.UnsupportedEncodingException;
 import java.lang.reflect.InvocationTargetException;
 import java.lang.reflect.Method;
-import java.nio.charset.StandardCharsets;
+import java.util.Arrays;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
@@ -143,7 +147,7 @@ public class Authenticity implements IAuthenticity {
                 }
             }
             else if ("条件选".equals(metadataRule.getConstraintion())){
-                String condition = metadataRule.getCondition();
+                String condition = metadataRule.getConditions();
                 if (StrUtil.isNotBlank(condition)){
                     if (condition.contains(",")){
                         String [] a = condition.split(",");
@@ -249,7 +253,7 @@ public class Authenticity implements IAuthenticity {
      * @return 1
      */
     public Map<String, String> archivalMDRangeCheck(MetadataRule metadataRule){
-       return databaseMDTypeCheck(metadataRule);
+       return null;
     }
     /**
      * 对数据库中电子文件元数据项进行数据值是否在合理范围内的检测
@@ -274,9 +278,11 @@ public class Authenticity implements IAuthenticity {
         return null;
     }
 
-    public static void main(String[] args) {
-        String str = "`";
-        byte[] by = str.getBytes(StandardCharsets.UTF_8);
+    public static void main(String[] args) throws UnsupportedEncodingException {
+        String s = new String(new byte[]{(byte) 2197},"GB18030");
+        System.out.println(s);
+        String s1 = "ˋ";
+        System.out.println(Arrays.toString(s1.getBytes("GB18030")));
     }
     /**
      * 对归档信息包中元数据项进行数据值是否包含特殊字符的检测
@@ -291,27 +297,32 @@ public class Authenticity implements IAuthenticity {
      */
     public Map<String, String> archivalMDCodeCheck(){
         Map<String,String> map = new HashMap<>();
-
         //获取档号命名规则 对档号的构成部分进行检测
-
         try {
             String rule = getMetadataAttr("archivalCodeRule");
             //此处是所有档号构成元素名字
             String[] child = rule.split(",");
             //获取元素对应的规范
             MetadataRule metadataRule;
-            String regex;
+            String regex,value;
             for (String s : child) {
-                metadataRule = metadataRules.stream().filter(r -> r.getName().equals(s)).findFirst().orElse(null);
+                metadataRule = metadataRules.stream().filter(r -> r.getName().equals(s)).findFirst().orElse(new MetadataRule());
                 regex = metadataRule.getRegex();
-
+                if (!"——".equals(regex)){
+                    Pattern pattern = Pattern.compile(regex);
+                    value = getMetadataAttr(metadataRule.getName());
+                    boolean b = pattern.matcher(value).matches();
+                    if (!b){
+                        map.put(metadataRule.getNameCn(),"档号不规范");
+                    }
+                }
             }
+            return map;
         } catch (NoSuchMethodException | InvocationTargetException | IllegalAccessException e) {
             map.put("档号检测","系统错误");
             log.error(e.getMessage());
             return map;
         }
-        return map;
     }
     /**
      * 对数据库中的归档号/档号进行检测
@@ -324,7 +335,12 @@ public class Authenticity implements IAuthenticity {
      * @return 1
      * 重复性检验
      */
-    public Result databaseMDRepeatCheck(){
+    public Result databaseMDRepeatCheck(MetadataRule metadataRule){
+        //重复性校验
+        if ("不可重复".equals(metadataRule.getRepeatability())){
+            MetadataServiceImpl service = MetadataServiceSingle.getInstance();
+
+        }
         return null;
     }
     /**
