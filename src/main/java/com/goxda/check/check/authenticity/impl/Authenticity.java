@@ -5,6 +5,7 @@ import cn.hutool.core.util.StrUtil;
 import com.goxda.check.api.entity.CheckStep;
 import com.goxda.check.api.entity.Metadata;
 import com.goxda.check.api.entity.MetadataRule;
+import com.goxda.check.api.service.IMetadataService;
 import com.goxda.check.api.service.impl.MetadataServiceImpl;
 import com.goxda.check.check.authenticity.IAuthenticity;
 
@@ -15,6 +16,7 @@ import com.goxda.check.result.Result;
 import com.goxda.check.util.Utils;
 import lombok.extern.slf4j.Slf4j;
 
+import java.io.File;
 import java.io.UnsupportedEncodingException;
 import java.lang.reflect.InvocationTargetException;
 import java.lang.reflect.Method;
@@ -115,20 +117,17 @@ public class Authenticity implements IAuthenticity {
     public Result metadataAuthenticity() {
         return null;
     }
-    public String getMetadataAttr(String name) throws NoSuchMethodException, InvocationTargetException, IllegalAccessException {
+    public Object getMetadataAttr(String name) throws NoSuchMethodException, InvocationTargetException, IllegalAccessException {
         String methodName = Utils.getMethodName(name);
         Class<? extends Metadata> clasz = metadata.getClass();
         Method method = clasz.getDeclaredMethod(methodName);
-        return (String) method.invoke(metadata);
+        return method.invoke(metadata);
     }
     boolean lenCheck(MetadataRule rule) throws NoSuchMethodException, IllegalAccessException, InvocationTargetException {
         //获取元数据
         String name = rule.getName();
-        String attr = getMetadataAttr(name);
-        if (StrUtil.isBlank(attr)){
-            return false;
-        }
-        return true;
+        Object attr = getMetadataAttr(name);
+        return attr!=null;
     }
 
     /**
@@ -176,7 +175,7 @@ public class Authenticity implements IAuthenticity {
             return map;
         } catch (NoSuchMethodException | IllegalAccessException | InvocationTargetException e) {
             map.put(namecn,"系统错误");
-            log.error(e.getMessage());
+            log.error(e.toString());
             return map;
         }
     }
@@ -200,9 +199,9 @@ public class Authenticity implements IAuthenticity {
         try{
             if("——".equals(metadataRule.getRegex())){
                 String name = metadataRule.getName();
-                String value = getMetadataAttr(name);
-                Pattern pattern = Pattern.compile(regex );
-                Matcher matcher = pattern.matcher(value);
+                Object value = getMetadataAttr(name);
+                Pattern pattern = Pattern.compile(regex);
+                Matcher matcher = pattern.matcher(value.toString());
                 boolean b = matcher.matches();
                 if (!b){
                     map.put(metadataRule.getNameCn(),"格式违规!");
@@ -210,7 +209,7 @@ public class Authenticity implements IAuthenticity {
             }
             return map;
         } catch (NoSuchMethodException | IllegalAccessException | InvocationTargetException e) {
-            map.put(namecn,"系统错误");
+            map.put(namecn,"系统错误"+e.toString());
             log.error(e.getMessage());
             return map;
         }
@@ -235,8 +234,8 @@ public class Authenticity implements IAuthenticity {
         try {
             if (!"——".equals(range)){
                 String [] ranges = range.split(",");
-                String value = getMetadataAttr(name);
-                if (!ArrayUtil.contains(ranges,value)){
+                Object value = getMetadataAttr(name);
+                if (!ArrayUtil.contains(ranges,value.toString())){
                     map.put(namecn,"未按规定值");
                 }
             }
@@ -279,10 +278,8 @@ public class Authenticity implements IAuthenticity {
     }
 
     public static void main(String[] args) throws UnsupportedEncodingException {
-        String s = new String(new byte[]{(byte) 2197},"GB18030");
-        System.out.println(s);
-        String s1 = "ˋ";
-        System.out.println(Arrays.toString(s1.getBytes("GB18030")));
+        Object s = 123123;
+        System.out.println(s.toString());
     }
     /**
      * 对归档信息包中元数据项进行数据值是否包含特殊字符的检测
@@ -299,7 +296,7 @@ public class Authenticity implements IAuthenticity {
         Map<String,String> map = new HashMap<>();
         //获取档号命名规则 对档号的构成部分进行检测
         try {
-            String rule = getMetadataAttr("archivalCodeRule");
+            String rule = (String) getMetadataAttr("archivalCodeRule");
             //此处是所有档号构成元素名字
             String[] child = rule.split(",");
             //获取元素对应的规范
@@ -310,7 +307,7 @@ public class Authenticity implements IAuthenticity {
                 regex = metadataRule.getRegex();
                 if (!"——".equals(regex)){
                     Pattern pattern = Pattern.compile(regex);
-                    value = getMetadataAttr(metadataRule.getName());
+                    value = (String) getMetadataAttr(metadataRule.getName());
                     boolean b = pattern.matcher(value).matches();
                     if (!b){
                         map.put(metadataRule.getNameCn(),"档号不规范");
@@ -335,13 +332,25 @@ public class Authenticity implements IAuthenticity {
      * @return 1
      * 重复性检验
      */
-    public Result databaseMDRepeatCheck(MetadataRule metadataRule){
-        //重复性校验
-        if ("不可重复".equals(metadataRule.getRepeatability())){
-            MetadataServiceImpl service = MetadataServiceSingle.getInstance();
-
+    public Map<String,String> databaseMDRepeatCheck(MetadataRule metadataRule){
+        Map<String,String> map = new HashMap<>();
+        String name = metadataRule.getName();
+        String namecn = metadataRule.getNameCn();
+        try{
+            if ("不可重复".equals(metadataRule.getRepeatability())){
+                IMetadataService service = MetadataServiceSingle.getInstance();
+                String v = (String) getMetadataAttr(name);
+                boolean b = service.checkRepeat(name,v);
+                if (b){
+                    map.put(namecn,"数据重复");
+                }
+            }
+            return map;
+        } catch (NoSuchMethodException | IllegalAccessException | InvocationTargetException e) {
+            map.put("重复性检测","系统错误");
+            log.error(e.getMessage());
+            return map;
         }
-        return null;
     }
     /**
      * 重复性检验
@@ -352,25 +361,82 @@ public class Authenticity implements IAuthenticity {
     /**
      * 电子文件真实
      * @return 是否通过
+     * 检测对象 归档电子文件内容数据
+     * 捕获电子文件内容数据的电子属性信息（计算机文件名、文件大小、文件格式、创建时间等）
+     * 与电子属性信息中记录的数据进行比对
      */
     @Override
     public Result electronicDocumentAuthenticity() {
         return new Result(true);
     }
+    public Map<String,String> checkComputerFileName(MetadataRule rule){
+        Map<String,String> map =new HashMap<>();
+        try{
+
+            File file = getFile();
+            if (!file.exists()){
+                map.put("计算机文件名","对应文件不存在");
+            }
+        } catch (NoSuchMethodException | IllegalAccessException | InvocationTargetException e) {
+            map.put("计算机文件名","系统错误");
+            log.error(e.getMessage());
+            return map;
+        }
+        return map;
+    }
+    public Map<String,String> checkComputerFileSize(MetadataRule rule){
+        String l = "computer file size";
+        Map<String,String> map =new HashMap<>();
+        try{
+            File file = getFile();
+            String fileLength  = (String) getMetadataAttr(l);
+            if (!fileLength.equals(String.valueOf(file.length()))){
+                map.put("计算机文件大小","文件大小不一致");
+            }
+        } catch (NoSuchMethodException | IllegalAccessException | InvocationTargetException e) {
+            map.put("计算机文件大小","系统错误");
+            log.error(e.getMessage());
+            return map;
+        }
+        return map;
+    }
+    public File getFile() throws NoSuchMethodException, IllegalAccessException, InvocationTargetException {
+        String name = "computer file name";
+        String filename = (String) getMetadataAttr(name);
+        return new File(filename);
+    }
+    public Map<String,String> checkFormatInformation(MetadataRule rule){
+        String l = "format information";
+        Map<String,String> map =new HashMap<>();
+        String namecn = "计算机文件类型";
+        try{
+            File file = getFile();
+            String fileLength  = (String) getMetadataAttr(l);
+            if (!fileLength.equals(String.valueOf(file.length()))){
+                map.put(namecn,"文件大小不一致");
+            }
+        } catch (NoSuchMethodException | IllegalAccessException | InvocationTargetException e) {
+            map.put(namecn,"系统错误");
+            log.error(e.getMessage());
+            return map;
+        }
+        return map;
+    }
 
     /**
      * 元数据与内容关联真实性检测
-     *
      * @return 是否通过
      */
     @Override
     public boolean metadataRelevanceDocumentAuthenticity() {
         return false;
     }
+    public Map<String,String> checkMetadataRelevanceDocument(MetadataRule rule){
+        return null;
+    }
 
     /**
      * 归档信息包真实性检测
-     *
      * @return 是否通过
      */
     @Override
