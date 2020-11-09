@@ -14,12 +14,12 @@ import lombok.experimental.Accessors;
  * </p>
  *
  * @author ah
- * @since 2020-11-06
+ * @since 2020-11-09
  */
 @Data
 @EqualsAndHashCode(callSuper = false)
 @Accessors(chain = true)
-public class MetadataRule implements Serializable {
+public class MetadataRuleImage implements Serializable {
 
     private static final long serialVersionUID = 1L;
 
@@ -56,9 +56,6 @@ public class MetadataRule implements Serializable {
      * 约束性
      */
     private String constraintion;
-
-
-
 
     /**
      * 可重复性
@@ -106,19 +103,29 @@ public class MetadataRule implements Serializable {
     private String coherentElement;
 
     /**
+     * 著录说明
+     */
+    private String descriptionExplanation;
+
+    /**
      * 注释
      */
     private String comments;
+
     /**
-     * 类型
+     * 类型 此处为元数据类型 文书类 照片类 录音录像类
      */
     private String type;
+
     /**
      * 相关正则
      */
     private String regex;
+
     /**
      * 条件
      */
     private String conditions;
+
+
 }

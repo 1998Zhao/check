@@ -431,7 +431,16 @@ public class Authenticity implements IAuthenticity {
     public boolean metadataRelevanceDocumentAuthenticity() {
         return false;
     }
+
+    /**
+     * 关联性检测
+     * 首先找到文件 获取文件的属性 内容 等信息
+     * 再与元数据进行比对 元数据比对项 可由数据库查询得出
+     * @param rule
+     * @return
+     */
     public Map<String,String> checkMetadataRelevanceDocument(MetadataRule rule){
+
         return null;
     }
 
