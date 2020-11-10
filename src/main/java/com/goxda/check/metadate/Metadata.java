@@ -116,9 +116,6 @@ public class Metadata {
     public String getAggregationLevel() {
         return aggregationLevel.getAggregationLevel();
     }
-    public String getProvenance() {
-        return provenance.getProvenance();
-    }
 
     public String getArchivesName() {
         return provenance.getArchivesName();
@@ -189,9 +186,6 @@ public class Metadata {
 
     public String getPageNumber() {
         return archivalCode.getPageNumber();
-    }
-    public String getContentDescription() {
-        return contentDescription.getContentDescription();
     }
 
 
@@ -302,9 +296,6 @@ public class Metadata {
     public String getManuscriptType() {
         return formalCharacteristics.getManuscriptType();
     }
-    public String getElectronicAttributes() {
-        return electronicAttributes.getElectronicAttributes();
-    }
 
     public String getFormatInformation() {
         return electronicAttributes.getFormatInformation();
@@ -324,9 +315,6 @@ public class Metadata {
 
     public String getInformationSystemDescription() {
         return electronicAttributes.getInformationSystemDescription();
-    }
-    public String getDigitizationAttributes() {
-        return digitizationAttributes.getDigitizationAttributes();
     }
 
     public String getPhysicalRecordCharacteristics() {
@@ -390,21 +378,11 @@ public class Metadata {
     public String getMicroformIdentifier() {
         return storageLocation.getMicroformIdentifier();
     }
-    public String getRightsManagement() {
-        return rightsManagement.getRightsManagement();
-    }
 
     public String getIntellectualPropertyStatement() {
         return rightsManagement.getIntellectualPropertyStatement();
     }
 
-    public String getAuthorizedAgent() {
-        return rightsManagement.getAuthorizedAgent();
-    }
-
-    public String getPermissionAssignment() {
-        return rightsManagement.getPermissionAssignment();
-    }
 
     public String getControlIdentifier() {
         return rightsManagement.getControlIdentifier();

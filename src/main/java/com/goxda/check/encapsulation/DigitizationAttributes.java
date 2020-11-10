@@ -1,5 +1,6 @@
-package com.goxda.check.metadate;
+package com.goxda.check.encapsulation;
 
+import com.goxda.check.metadate.IMetadata;
 import lombok.Data;
 
 /**
@@ -9,7 +10,7 @@ import lombok.Data;
  * @author zgq
  */
 @Data
-public class DigitizationAttributes implements IMetadata{
+public class DigitizationAttributes implements IMetadata {
     /**
      * 数字化对象形态
      * 被数字化文件或档案的载体类型、物理尺寸等信息的描述

@@ -2,6 +2,8 @@ package com.goxda.check.api.mapper;
 
 import com.goxda.check.api.entity.TransmissionMetadata;
 import com.baomidou.mybatisplus.core.mapper.BaseMapper;
+import org.apache.ibatis.annotations.Mapper;
+import org.springframework.stereotype.Repository;
 
 /**
  * <p>
@@ -11,6 +13,8 @@ import com.baomidou.mybatisplus.core.mapper.BaseMapper;
  * @author ah
  * @since 2020-11-09
  */
+@Repository
+@Mapper
 public interface TransmissionMetadataMapper extends BaseMapper<TransmissionMetadata> {
 
 }

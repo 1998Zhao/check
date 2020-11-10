@@ -1,21 +1,29 @@
 package com.goxda.check;
 
 import com.goxda.check.api.entity.MetadataRule;
+import com.goxda.check.api.service.IAccessionMetadataService;
+import com.goxda.check.api.service.IMetadataRuleImageService;
 import com.goxda.check.api.service.IMetadataRuleService;
 import com.goxda.check.api.service.IMetadataService;
+import com.goxda.check.api.service.impl.XmlTemplatesService;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
 
+import java.util.ArrayList;
 import java.util.List;
 
 @SpringBootTest
 class CheckApplicationTests {
     @Autowired
-    private IMetadataRuleService service;
+    private IMetadataRuleImageService service;
+    @Autowired
+    private IAccessionMetadataService accessionMetadataService;
+    @Autowired
+    private XmlTemplatesService templatesService;
     @Test
     void contextLoads() {
-        List<MetadataRule> list = service.list();
+        List<MetadataRule> list = new ArrayList<>();
         StringBuilder sb = new StringBuilder();
         sb.append("create table metadata ( \n `id` int not null AUTO_INCREMENT,\n ");
         for (MetadataRule metadataRule : list) {
@@ -43,5 +51,9 @@ class CheckApplicationTests {
             name = name.replaceAll(" ","_");
         }
         return name;
+    }
+    @Test
+    public void test(){
+        templatesService.test();
     }
 }

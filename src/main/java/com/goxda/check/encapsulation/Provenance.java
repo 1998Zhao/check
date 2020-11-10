@@ -1,5 +1,6 @@
-package com.goxda.check.metadate;
+package com.goxda.check.encapsulation;
 
+import com.goxda.check.metadate.IMetadata;
 import lombok.Data;
 
 /**
@@ -11,7 +12,7 @@ import lombok.Data;
  * @author zgq
  */
 @Data
-public class Provenance implements IMetadata{
+public class Provenance implements IMetadata {
     private String archivesName;
     private String archivesIdentifier;
     private String fondsName;

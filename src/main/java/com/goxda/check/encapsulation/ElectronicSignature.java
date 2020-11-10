@@ -1,6 +1,6 @@
-package com.goxda.check.metadate;
+package com.goxda.check.encapsulation;
 
-import com.goxda.check.encapsulation.CertificateBlock;
+import com.goxda.check.metadate.IMetadata;
 import lombok.Data;
 
 import java.util.Date;
@@ -12,7 +12,7 @@ import java.util.Date;
  * @author zgq
  */
 @Data
-public class ElectronicSignature implements IMetadata{
+public class ElectronicSignature implements IMetadata {
     /**
      * 签名标识符
      */
@@ -41,7 +41,12 @@ public class ElectronicSignature implements IMetadata{
      * 证书
      * 可证实电子签名人与电子签名制作数据有联系的电子文件或者其他电子记录
      */
-    private CertificateBlock certificateBlock;
+    private String certificate;
+    /**
+     * 证书引证
+     * 指向验证签名证书的链接
+     */
+    private String certificateReference;
     /**
      * 签名算法标识
      * 用于电子签名的算法标识

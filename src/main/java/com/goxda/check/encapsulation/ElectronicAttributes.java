@@ -1,5 +1,6 @@
-package com.goxda.check.metadate;
+package com.goxda.check.encapsulation;
 
+import com.goxda.check.metadate.IMetadata;
 import lombok.Data;
 
 /**
@@ -9,7 +10,7 @@ import lombok.Data;
  * @author zgq
  */
 @Data
-public class ElectronicAttributes implements IMetadata{
+public class ElectronicAttributes implements IMetadata {
     /**
      * 格式信息
      * 电子文件格式的一组描述信息

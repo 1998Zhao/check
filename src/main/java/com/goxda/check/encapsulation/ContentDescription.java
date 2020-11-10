@@ -1,5 +1,6 @@
-package com.goxda.check.metadate;
+package com.goxda.check.encapsulation;
 
+import com.goxda.check.metadate.IMetadata;
 import lombok.Data;
 
 /**
@@ -7,7 +8,7 @@ import lombok.Data;
  * @author zgq
  */
 @Data
-public class ContentDescription implements IMetadata{
+public class ContentDescription implements IMetadata {
     /**
      * 题名 又称标题、题目，是表达电子文件中心内容和形式特征的名称
      */

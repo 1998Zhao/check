@@ -1,5 +1,7 @@
 package com.goxda.check.check.integrity.impl;
 
+import com.goxda.check.api.entity.IMetadata;
+import com.goxda.check.api.entity.Metadata;
 import com.goxda.check.check.integrity.IIntegrityCheck;
 /**
  * 电子文件数据总量检测 电子文件数据总量检测 电子文件内容完整性检测 归档信息包完整性检测
@@ -7,16 +9,20 @@ import com.goxda.check.check.integrity.IIntegrityCheck;
  * createTime 2020-10-27
  */
 public class IntegrityCheck implements IIntegrityCheck {
+    IMetadata metadata;
     /**
      * 电子文件数据总量检测
-     *
+     * 1.统计电子文件总件数，并和GB/T 18894-2016表A.1《电子文件归档登记表》中登记的归档电子文件数量比对
+     * 2.统计电子文件总字节数，并和GB/T 18894-2016表A.1《电子文件归档登记表》中登记的归档电子文件总字节数比对
      * @return 是否通过
      */
     @Override
     public boolean electronicDocumentQuantityDetection() {
         return false;
     }
-
+    public boolean checkEleFilesCount(){
+        return false;
+    }
     /**
      * 电子文件元数据完整性检测
      *
