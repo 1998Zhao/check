@@ -41,7 +41,7 @@ public class ElectronicSignature implements IMetadata {
      * 证书
      * 可证实电子签名人与电子签名制作数据有联系的电子文件或者其他电子记录
      */
-    private String certificate;
+    private CertificateBlock certificateBlock;
     /**
      * 证书引证
      * 指向验证签名证书的链接

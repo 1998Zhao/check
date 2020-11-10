@@ -1,9 +1,14 @@
 package com.goxda.check.encapsulation;
 
+import lombok.Data;
+
 /**
  * 封装内容
  * @author zgq
  */
-public class EncapsulationContent {
-
+@Data
+public class EncapsulationContent implements IEncapsulationContent{
+    RecordEntityBlock recordEntityBlock;
+    BusinessEntityBlock businessEntityBlock;
+    AgentEntityBlock agentEntityBlock;
 }

@@ -1,5 +1,7 @@
 package com.goxda.check.encapsulation;
 
+import lombok.Data;
+
 /**
  * 文档
  * M215 文档标识符
@@ -8,6 +10,7 @@ package com.goxda.check.encapsulation;
  *─M22题名
  *─M217 文档数据
  */
+@Data
 public class Document {
     private String documentIdentifier;
     private String documentId;

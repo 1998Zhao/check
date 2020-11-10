@@ -1,0 +1,553 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema"
+xmlns="http://www.saac.gov.cn/standards/ERM/encapsulation"
+targetNamespace="http://www.saac.gov.cn/standards/ERM/encapsulation"
+elementFormDefault="qualified">
+
+<!--复杂元素的定义 -->
+	<xs:element name="电子文件封装包">
+		<xs:annotation>
+			<xs:documentation>eep 根元素</xs:documentation>
+		</xs:annotation>
+		<xs:complexType>
+			<xs:sequence>
+				<xs:element ref="封装包格式描述"/>
+				<xs:element ref="版本"/>
+				<xs:element ref="被签名对象"/>
+				<xs:sequence minOccurs="0">
+					<xs:element ref="电子签名块"/>
+					<xs:element ref="锁定签名"/>
+				</xs:sequence>
+			</xs:sequence>
+		</xs:complexType>
+	</xs:element>
+	<xs:element name="被签名对象">
+		<xs:annotation>
+			<xs:documentation>被电子签名的部分</xs:documentation>
+		</xs:annotation>
+		<xs:complexType>
+			<xs:sequence>
+				<xs:element ref="封装包类型"/>
+				<xs:element ref="封装包类型描述"/>
+				<xs:element ref="封装包创建时间"/>
+				<xs:element ref="封装包创建单位"/>
+				<xs:choice>
+					<xs:element ref="封装内容"/>
+					<xs:element ref="修改封装内容"/>
+				</xs:choice>
+			</xs:sequence>
+			<xs:attribute name="eep版本" type="xs:gYear" use="required" fixed="2009">
+				<xs:annotation>
+					<xs:documentation>本属性的值和元素“版本”的值相同，且被电子签名，用于验证版本的真实性</xs:documentation>
+				</xs:annotation>
+			</xs:attribute>
+		</xs:complexType>
+	</xs:element>
+	<xs:element name="封装内容">
+		<xs:complexType>
+			<xs:sequence>
+				<xs:element ref="文件实体块"/>
+				<xs:element ref="业务实体块"/>
+				<xs:element ref="机构人员实体块"/>
+			</xs:sequence>
+		</xs:complexType>
+	</xs:element>
+	<xs:element name="文件实体块">
+		<xs:complexType>
+			<xs:sequence>
+				<xs:element ref="文件实体"/>
+				<xs:element ref="文件实体关系" minOccurs="0" maxOccurs="unbounded"/>
+			</xs:sequence>
+		</xs:complexType>
+	</xs:element>
+	<xs:element name="文件实体">
+		<xs:complexType>
+			<xs:sequence>
+				<xs:element ref="聚合层次"/>
+				<xs:element ref="来源"/>
+				<xs:element ref="电子文件号"/>
+				<xs:element ref="档号"/>
+				<xs:element ref="内容描述"/>
+				<xs:element ref="形式特征"/>
+				<xs:element ref="存储位置"/>
+				<xs:element ref="权限管理"/>
+				<xs:element ref="信息系统描述" minOccurs="0" maxOccurs="unbounded"/>
+				<xs:element ref="附注" minOccurs="0" maxOccurs="unbounded"/>
+				<xs:element ref="文件数据"/>
+			</xs:sequence>
+		</xs:complexType>
+	</xs:element>
+	<xs:element name="来源">
+		<xs:complexType>
+			<xs:sequence>
+				<xs:element ref="档案馆名称" minOccurs="0"/>
+				<xs:element ref="档案馆代码" minOccurs="0"/>
+				<xs:element ref="全宗名称" minOccurs="0"/>
+				<xs:element ref="立档单位名称"/>
+			</xs:sequence>
+		</xs:complexType>
+	</xs:element>
+	<xs:element name="档号">
+		<xs:complexType mixed="true">
+			<xs:sequence>
+				<xs:element ref="全宗号" minOccurs="0"/>
+				<xs:element ref="目录号" minOccurs="0"/>
+				<xs:element ref="年度"/>
+				<xs:element ref="保管期限"/>
+				<xs:element ref="机构或问题" minOccurs="0"/>
+				<xs:element ref="类别号" minOccurs="0"/>
+				<xs:element ref="室编案卷号" minOccurs="0"/>
+				<xs:element ref="馆编案卷号" minOccurs="0"/>
+				<xs:choice>
+					<xs:sequence>
+						<xs:element ref="室编件号"/>
+						<xs:element ref="馆编件号" minOccurs="0"/>
+					</xs:sequence>
+					<xs:sequence>
+						<xs:element ref="馆编件号"/>
+					</xs:sequence>
+				</xs:choice>
+				<xs:element ref="页号" minOccurs="0"/>
+			</xs:sequence>
+		</xs:complexType>
+	</xs:element>
+	<xs:element name="内容描述">
+		<xs:complexType>
+			<xs:sequence>
+				<xs:element ref="题名"/>
+				<xs:element ref="并列题名" minOccurs="0"/>
+				<xs:element ref="副题名" minOccurs="0"/>
+				<xs:element ref="说明题名文字" minOccurs="0"/>
+				<xs:element ref="主题词" minOccurs="0" maxOccurs="unbounded"/>
+				<xs:element ref="关键词" minOccurs="0"/>
+				<xs:element ref="人名" minOccurs="0"/>
+				<xs:element ref="摘要" minOccurs="0"/>
+				<xs:element ref="分类号" minOccurs="0"/>
+				<xs:element ref="文件编号" minOccurs="0"/>
+				<xs:element ref="责任者"/>
+				<xs:element ref="日期"/>
+				<xs:element ref="文种" minOccurs="0"/>
+				<xs:element ref="紧急程度" minOccurs="0"/>
+				<xs:element ref="主送" minOccurs="0"/>
+				<xs:element ref="抄送" minOccurs="0"/>
+				<xs:element ref="密级"/>
+				<xs:element ref="保密期限" minOccurs="0"/>
+			</xs:sequence>
+		</xs:complexType>
+	</xs:element>
+	<xs:element name="主题词">
+		<xs:complexType>
+			<xs:simpleContent>
+				<xs:extension base="xs:string">
+					<xs:attribute name="主题词表名称" type="xs:string"/>
+				</xs:extension>
+			</xs:simpleContent>
+		</xs:complexType>
+	</xs:element>
+	<xs:element name="形式特征">
+		<xs:complexType>
+			<xs:sequence>
+				<xs:element ref="文件组合类型"/>
+				<xs:element ref="页数" minOccurs="0"/>
+				<xs:element ref="语种" minOccurs="0"/>
+				<xs:element ref="稿本" minOccurs="0"/>
+			</xs:sequence>
+		</xs:complexType>
+	</xs:element>
+	<xs:element name="存储位置">
+		<xs:complexType>
+			<xs:sequence>
+				<xs:element ref="当前位置" minOccurs="0"/>
+				<xs:element ref="脱机载体编号" maxOccurs="unbounded"/>
+				<xs:element ref="脱机载体存址" minOccurs="0" maxOccurs="unbounded"/>
+				<xs:element ref="缩微号" minOccurs="0"/>
+			</xs:sequence>
+		</xs:complexType>
+	</xs:element>
+	<xs:element name="权限管理">
+		<xs:complexType>
+			<xs:sequence>
+				<xs:element ref="知识产权说明" minOccurs="0"/>
+				<xs:element ref="授权" minOccurs="0" maxOccurs="unbounded"/>
+				<xs:element ref="控制标识" minOccurs="0"/>
+			</xs:sequence>
+		</xs:complexType>
+	</xs:element>
+	<xs:element name="授权">
+		<xs:complexType>
+			<xs:sequence>
+				<xs:element ref="授权对象"/>
+				<xs:element ref="授权行为"/>
+			</xs:sequence>
+		</xs:complexType>
+	</xs:element>
+	<xs:element name="文件数据">
+		<xs:complexType>
+			<xs:sequence>
+				<xs:element ref="文档" maxOccurs="unbounded"/>
+			</xs:sequence>
+		</xs:complexType>
+	</xs:element>
+	<xs:element name="文档">
+		<xs:complexType>
+			<xs:sequence>
+				<xs:element ref="文档标识符"/>
+				<xs:element ref="文档序号" minOccurs="0"/>
+				<xs:element ref="文档主从声明" minOccurs="0"/>
+				<xs:element ref="题名" minOccurs="0"/>
+				<xs:element ref="文档数据" maxOccurs="unbounded"/>
+			</xs:sequence>
+		</xs:complexType>
+	</xs:element>
+	<xs:element name="文档数据">
+		<xs:annotation>
+			<xs:documentation>一个文档数据对应文档的一个稿本或收文处理单(文件拟稿标签)</xs:documentation>
+		</xs:annotation>
+		<xs:complexType>
+			<xs:sequence>
+				<xs:element ref="编码" maxOccurs="unbounded"/>
+			</xs:sequence>
+			<xs:attribute name="文档数据ID" type="xs:ID" use="required"/>
+		</xs:complexType>
+	</xs:element>
+	<xs:element name="编码">
+		<xs:annotation>
+			<xs:documentation>为一个计算机文件</xs:documentation>
+		</xs:annotation>
+		<xs:complexType>
+			<xs:sequence>
+				<xs:element ref="电子属性"/>
+				<xs:element ref="数字化属性" minOccurs="0"/>
+				<xs:element ref="编码描述"/>
+				<xs:element ref="反编码关键字"/>
+				<xs:element ref="编码数据"/>
+			</xs:sequence>
+			<xs:attribute name="编码ID" type="xs:ID" use="required"/>
+		</xs:complexType>
+	</xs:element>
+	<xs:element name="电子属性">
+		<xs:complexType>
+			<xs:sequence>
+				<xs:element ref="格式信息" minOccurs="0"/>
+				<xs:element ref="计算机文件名"/>
+				<xs:element ref="计算机文件大小"/>
+				<xs:element ref="文档创建程序" minOccurs="0"/>
+			</xs:sequence>
+		</xs:complexType>
+	</xs:element>
+	<xs:element name="数字化属性">
+		<xs:complexType>
+			<xs:sequence>
+				<xs:element ref="数字化对象形态" minOccurs="0"/>
+				<xs:element ref="扫描分辨率"/>
+				<xs:element ref="扫描色彩模式"/>
+				<xs:element ref="图像压缩方案" minOccurs="0"/>
+			</xs:sequence>
+		</xs:complexType>
+	</xs:element>
+	<xs:element name="编码数据">
+		<xs:annotation>
+			<xs:documentation>为base64编码的二进制数据。修改封装时，若数据没有变更，值为空，由“引用编码数据ID”属性引用原数据</xs:documentation>
+		</xs:annotation>
+		<xs:complexType>
+			<xs:simpleContent>
+				<xs:extension base="xs:base64Binary">
+<xs:annotation>
+<xs:documentation>在递交签名时，属性的文本顺序依次为“编码数据ID”和“引用编码数据ID”</xs:documentation>
+</xs:annotation>
+					<xs:attribute name="编码数据ID" type="xs:ID" use="required"/>
+					<xs:attribute name="引用编码数据ID" type="xs:IDREF"/>
+				</xs:extension>
+			</xs:simpleContent>
+		</xs:complexType>
+	</xs:element>
+	<xs:element name="文件实体关系">
+		<xs:complexType>
+			<xs:sequence>
+				<xs:element ref="文件标识符"/>
+				<xs:element ref="被关联文件标识符"/>
+				<xs:element ref="关系类型" minOccurs="0"/>
+				<xs:element ref="关系" minOccurs="0"/>
+				<xs:element ref="关系描述" minOccurs="0"/>
+			</xs:sequence>
+		</xs:complexType>
+	</xs:element>
+	<xs:element name="业务实体块">
+		<xs:complexType>
+			<xs:sequence>
+				<xs:element ref="业务实体" maxOccurs="unbounded"/>
+			</xs:sequence>
+		</xs:complexType>
+	</xs:element>
+	<xs:element name="业务实体">
+		<xs:complexType>
+			<xs:sequence>
+				<xs:element ref="业务标识符"/>
+				<xs:element ref="机构人员标识符"/>
+				<xs:element ref="文件标识符"/>
+				<xs:element ref="业务状态"/>
+				<xs:element ref="业务行为"/>
+				<xs:element ref="行为时间"/>
+				<xs:element ref="行为依据" minOccurs="0"/>
+				<xs:element ref="行为描述" minOccurs="0"/>
+			</xs:sequence>
+		</xs:complexType>
+	</xs:element>
+	<xs:element name="机构人员实体块">
+		<xs:complexType>
+			<xs:sequence>
+				<xs:element ref="机构人员实体" maxOccurs="unbounded"/>
+				<xs:element ref="机构人员实体关系" minOccurs="0" maxOccurs="unbounded"/>
+			</xs:sequence>
+		</xs:complexType>
+	</xs:element>
+	<xs:element name="机构人员实体">
+		<xs:complexType>
+			<xs:sequence>
+				<xs:element ref="机构人员标识符"/>
+				<xs:element ref="机构人员类型" minOccurs="0"/>
+				<xs:element ref="机构人员名称"/>
+				<xs:element ref="组织机构代码" minOccurs="0"/>
+				<xs:element ref="个人职位" minOccurs="0"/>
+			</xs:sequence>
+		</xs:complexType>
+	</xs:element>
+	<xs:element name="机构人员实体关系">
+		<xs:complexType>
+			<xs:sequence>
+				<xs:element ref="机构人员标识符"/>
+				<xs:element ref="被关联机构人员标识符"/>
+				<xs:element ref="关系类型" minOccurs="0"/>
+				<xs:element ref="关系" minOccurs="0"/>
+				<xs:element ref="关系描述" minOccurs="0"/>
+			</xs:sequence>
+		</xs:complexType>
+	</xs:element>
+	<xs:element name="电子签名块">
+		<xs:complexType>
+			<xs:sequence>
+				<xs:element ref="电子签名" maxOccurs="unbounded"/>
+			</xs:sequence>
+		</xs:complexType>
+	</xs:element>
+	<xs:element name="电子签名">
+		<xs:complexType>
+			<xs:sequence>
+				<xs:element ref="签名标识符"/>
+				<xs:element ref="签名规则"/>
+				<xs:element ref="签名时间" minOccurs="0"/>
+				<xs:element ref="签名人" minOccurs="0"/>
+				<xs:element ref="签名结果"/>
+				<xs:element ref="证书块" maxOccurs="unbounded"/>
+				<xs:element ref="签名算法标识"/>
+			</xs:sequence>
+		</xs:complexType>
+	</xs:element>
+	<xs:element name="证书块">
+		<xs:complexType>
+			<xs:sequence>
+				<xs:element ref="证书" maxOccurs="unbounded"/>
+				<xs:element ref="证书引证" minOccurs="0"/>
+			</xs:sequence>
+		</xs:complexType>
+	</xs:element>
+	<xs:element name="锁定签名">
+		<xs:annotation>
+			<xs:documentation>对某一“电子签名”进行的签名</xs:documentation>
+		</xs:annotation>
+		<xs:complexType>
+			<xs:sequence>
+				<xs:element ref="被锁定签名标识符"/>
+				<xs:element ref="签名规则"/>
+				<xs:element ref="签名时间" minOccurs="0"/>
+				<xs:element ref="签名人" minOccurs="0"/>
+				<xs:element ref="签名结果"/>
+				<xs:element ref="证书块" maxOccurs="unbounded"/>
+				<xs:element ref="签名算法标识"/>
+			</xs:sequence>
+		</xs:complexType>
+	</xs:element>
+	<xs:element name="修改封装内容">
+		<xs:complexType>
+			<xs:sequence>
+				<xs:element ref="修改标识符"/>
+				<xs:element ref="原封装包"/>
+				<xs:element ref="修订内容"/>
+			</xs:sequence>
+		</xs:complexType>
+	</xs:element>
+	<xs:element name="原封装包">
+		<xs:annotation>
+			<xs:documentation>包含修改前封装包中的被签名对象和电子签名块</xs:documentation>
+		</xs:annotation>
+		<xs:complexType>
+			<xs:sequence>
+				<xs:element ref="被签名对象"/>
+				<xs:element ref="电子签名块" minOccurs="0"/>
+			</xs:sequence>
+		</xs:complexType>
+	</xs:element>
+	<xs:element name="修订内容">
+		<xs:annotation>
+			<xs:documentation>包含电子文件元数据及被修改的数据</xs:documentation>
+		</xs:annotation>
+		<xs:complexType>
+			<xs:sequence>
+				<xs:element ref="文件实体块"/>
+				<xs:element ref="业务实体块"/>
+				<xs:element ref="机构人员实体块"/>
+			</xs:sequence>
+		</xs:complexType>
+	</xs:element>
+
+	<!-- 简单元素的定义 -->
+	<xs:element name="封装包格式描述" type="xs:string" default="本EEP根据中华人民共和国档案行业标准DA/T 48-2009《基于XML的电子文件封装规范》生成"/>
+	<xs:element name="版本" type="xs:gYear" fixed="2009">
+		<xs:annotation>
+			<xs:documentation>本元素的值和元素“被签名对象”的属性“epp版本”的值相同</xs:documentation>
+		</xs:annotation>
+	</xs:element>
+	<xs:element name="封装包类型" default="原始型">
+		<xs:simpleType>
+			<xs:restriction base="xs:string">
+				<xs:enumeration value="原始型"/>
+				<xs:enumeration value="修改型"/>
+			</xs:restriction>
+		</xs:simpleType>
+	</xs:element>
+	<xs:element name="封装包类型描述" default="本封装包包含电子文件数据及其元数据，原始封装，未经修改">
+		<xs:simpleType>
+			<xs:restriction base="xs:string">
+				<xs:enumeration value="本封装包包含电子文件数据及其元数据，原始封装，未经修改"/>
+				<xs:enumeration value="本封装包包含电子文件数据及其元数据，系修改封装，在保留原封装包的基础上，添加了修改层"/>
+			</xs:restriction>
+		</xs:simpleType>
+	</xs:element>
+	<xs:element name="封装包创建时间" type="xs:dateTime"/>
+	<xs:element name="封装包创建单位" type="xs:string"/>
+	<xs:element name="聚合层次" type="xs:string" fixed="文件"/>
+	<xs:element name="档案馆名称" type="xs:string"/>
+	<xs:element name="档案馆代码" type="xs:string"/>
+	<xs:element name="全宗名称" type="xs:string"/>
+	<xs:element name="立档单位名称" type="xs:string"/>
+	<xs:element name="电子文件号" type="xs:string"/>
+	<xs:element name="全宗号" type="xs:string"/>
+	<xs:element name="目录号" type="xs:string"/>
+	<xs:element name="年度" type="xs:gYear"/>
+	<xs:element name="保管期限" type="xs:string"/>
+	<xs:element name="机构或问题" type="xs:string"/>
+	<xs:element name="类别号" type="xs:string"/>
+	<xs:element name="室编案卷号" type="xs:string"/>
+	<xs:element name="馆编案卷号" type="xs:string"/>
+	<xs:element name="室编件号" type="xs:positiveInteger"/>
+	<xs:element name="馆编件号" type="xs:positiveInteger"/>
+	<xs:element name="页号" type="xs:string"/>
+	<xs:element name="题名" type="xs:string"/>
+	<xs:element name="并列题名" type="xs:string"/>
+	<xs:element name="副题名" type="xs:string"/>
+	<xs:element name="说明题名文字" type="xs:string"/>
+	<xs:element name="关键词" type="xs:string"/>
+	<xs:element name="人名" type="xs:string"/>
+	<xs:element name="摘要" type="xs:string"/>
+	<xs:element name="分类号" type="xs:string"/>
+	<xs:element name="文件编号" type="xs:string"/>
+	<xs:element name="责任者" type="xs:string"/>
+	<xs:element name="日期" type="xs:string"/>
+	<xs:element name="文种" type="xs:string"/>
+	<xs:element name="紧急程度" type="xs:string"/>
+	<xs:element name="主送" type="xs:string"/>
+	<xs:element name="抄送" type="xs:string"/>
+	<xs:element name="密级" type="xs:string"/>
+	<xs:element name="保密期限" type="xs:string"/>
+	<xs:element name="文件组合类型" default="单件">
+		<xs:simpleType>
+			<xs:restriction base="xs:string">
+				<xs:enumeration value="单件"/>
+				<xs:enumeration value="组合文件"/>
+			</xs:restriction>
+		</xs:simpleType>
+	</xs:element>
+	<xs:element name="页数" type="xs:positiveInteger"/>
+	<xs:element name="语种" type="xs:string" default="汉语"/>
+	<xs:element name="稿本" type="xs:string"/>
+	<xs:element name="当前位置" type="xs:string"/>
+	<xs:element name="脱机载体编号" type="xs:string"/>
+	<xs:element name="脱机载体存址" type="xs:string"/>
+	<xs:element name="缩微号" type="xs:string"/>
+     <xs:element name="知识产权说明" type="xs:string"/>
+	<xs:element name="授权对象" type="xs:string"/>
+	<xs:element name="授权行为" type="xs:string"/>
+	<xs:element name="控制标识" type="xs:string"/>
+	<xs:element name="信息系统描述" type="xs:string"/>
+	<xs:element name="附注" type="xs:string"/>
+	<xs:element name="文档标识符" type="xs:ID"/>
+	<xs:element name="文档序号" type="xs:string"/>
+	<xs:element name="文档主从声明">
+		<xs:simpleType>
+			<xs:restriction base="xs:string">
+				<xs:enumeration value="主文档"/>
+				<xs:enumeration value="附属文档"/>
+			</xs:restriction>
+		</xs:simpleType>
+	</xs:element>
+	<xs:element name="格式信息" type="xs:string"/>
+	<xs:element name="计算机文件名" type="xs:string"/>
+	<xs:element name="计算机文件大小" type="xs:string"/>
+	<xs:element name="文档创建程序" type="xs:string"/>
+	<xs:element name="数字化对象形态" type="xs:string"/>
+	<xs:element name="扫描分辨率" type="xs:string"/>
+	<xs:element name="扫描色彩模式">
+		<xs:simpleType>
+			<xs:restriction base="xs:string">
+				<xs:enumeration value="黑白二值"/>
+				<xs:enumeration value="灰度"/>
+				<xs:enumeration value="彩色"/>
+			</xs:restriction>
+		</xs:simpleType>
+	</xs:element>
+	<xs:element name="图像压缩方案" type="xs:string"/>
+	<xs:element name="编码描述" type="xs:string" default="本封装包中“编码数据”元素存储的是计算机文件二进制流的Base64编码，有关Base64编码规则参见IETF RFC 2045多用途邮件扩展（MIME）第一部分：互联网信息体格式。当提取和显现封装在编码数据元素中的计算机文件时，应对Base64编码进行反编码，并依据封装包中“反编码关键字”元素中记录的值还原计算机文件的扩展名"/>
+	<xs:element name="反编码关键字" type="xs:string"/>
+	<xs:element name="文件标识符" type="xs:string"/>
+	<xs:element name="被关联文件标识符" type="xs:string"/>
+	<xs:element name="关系类型" type="xs:string"/>
+	<xs:element name="关系" type="xs:string"/>
+	<xs:element name="关系描述" type="xs:string"/>
+	<xs:element name="业务标识符" type="xs:string"/>
+	<xs:element name="机构人员标识符" type="xs:string"/>
+	<xs:element name="业务状态">
+		<xs:simpleType>
+			<xs:restriction base="xs:string">
+				<xs:enumeration value="历史行为"/>
+				<xs:enumeration value="计划任务"/>
+			</xs:restriction>
+		</xs:simpleType>
+	</xs:element>
+	<xs:element name="业务行为" type="xs:string"/>
+	<xs:element name="行为时间" type="xs:string"/>
+	<xs:element name="行为依据" type="xs:string"/>
+	<xs:element name="行为描述" type="xs:string"/>
+	<xs:element name="机构人员类型">
+		<xs:simpleType>
+			<xs:restriction base="xs:string">
+				<xs:enumeration value="单位"/>
+				<xs:enumeration value="内设机构"/>
+				<xs:enumeration value="个人"/>
+			</xs:restriction>
+		</xs:simpleType>
+	</xs:element>
+	<xs:element name="机构人员名称" type="xs:string"/>
+	<xs:element name="组织机构代码" type="xs:string"/>
+	<xs:element name="个人职位" type="xs:string"/>
+	<xs:element name="被关联机构人员标识符" type="xs:string"/>
+	<xs:element name="签名标识符" type="xs:ID"/>
+	<xs:element name="签名规则" type="xs:string"/>
+	<xs:element name="签名时间" type="xs:dateTime"/>
+	<xs:element name="签名人" type="xs:string"/>
+	<xs:element name="签名结果" type="xs:base64Binary"/>
+	<xs:element name="证书" type="xs:base64Binary"/>
+	<xs:element name="证书引证" type="xs:anyURI"/>
+	<xs:element name="签名算法标识" type="xs:string"/>
+	<xs:element name="被锁定签名标识符" type="xs:IDREF"/>
+	<xs:element name="修改标识符" type="xs:ID"/>
+</xs:schema>

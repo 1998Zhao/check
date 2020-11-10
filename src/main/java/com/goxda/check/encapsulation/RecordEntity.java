@@ -31,4 +31,5 @@ public class RecordEntity {
      * 附注
      */
     private String annotation;
+    private RecordData recordData;
 }

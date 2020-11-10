@@ -9,5 +9,4 @@ import lombok.Data;
 @Data
 public class ElectronicSignatureBlock {
     private ElectronicSignature electronicSignature;
-    private LockSignature lockSignature;
 }
