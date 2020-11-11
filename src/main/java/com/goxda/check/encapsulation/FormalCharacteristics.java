@@ -1,6 +1,7 @@
 package com.goxda.check.encapsulation;
 
 import com.goxda.check.metadate.IMetadata;
+import lombok.Data;
 
 /**
  * 形式特征
@@ -13,8 +14,8 @@ import com.goxda.check.metadate.IMetadata;
  * 稿本（M45）
  * @author zgq
  */
+@Data
 public class FormalCharacteristics implements IMetadata {
-    private String formalCharacteristics;
     /**
      * 文件组合类型
      * 文件级聚合层次上文档聚合状况的分类
@@ -42,27 +43,4 @@ public class FormalCharacteristics implements IMetadata {
      */
     private String manuscriptType;
 
-    public String getFormalCharacteristics() {
-        return formalCharacteristics;
-    }
-
-    public String getDocumentAggregationType() {
-        return documentAggregationType;
-    }
-
-    public int getTotalNumberOfItems() {
-        return totalNumberOfItems;
-    }
-
-    public int getTotalNumberOfPages() {
-        return totalNumberOfPages;
-    }
-
-    public String getLanguage() {
-        return language;
-    }
-
-    public String getManuscriptType() {
-        return manuscriptType;
-    }
 }

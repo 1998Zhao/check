@@ -2,17 +2,11 @@ package com.goxda.check.encapsulation;
 
 import lombok.Data;
 
-import javax.xml.bind.annotation.XmlAccessType;
-import javax.xml.bind.annotation.XmlAccessorType;
-import javax.xml.bind.annotation.XmlRootElement;
-
 /**
  * 电子文件封装包
  * @author zgq
  */
 @Data
-@XmlRootElement
-@XmlAccessorType(XmlAccessType.FIELD)
 public class ElectronicDocumentsEncapsulationPackage {
     /**
      * 格式描述
