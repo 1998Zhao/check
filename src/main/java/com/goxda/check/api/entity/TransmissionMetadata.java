@@ -59,6 +59,9 @@ public class TransmissionMetadata implements Serializable {
      * 核发
      */
     private String issuance;
-
+    /**
+     * 元数据id
+     */
+    private Integer metadataId;
 
 }
