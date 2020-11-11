@@ -18,7 +18,7 @@ import lombok.experimental.Accessors;
 @Data
 @EqualsAndHashCode(callSuper = false)
 @Accessors(chain = true)
-public class TransmissionMetadata implements Serializable {
+public class TransmissionMetadata extends Metadata implements Serializable,IMetadata {
 
     private static final long serialVersionUID = 1L;
 

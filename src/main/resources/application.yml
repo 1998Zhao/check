@@ -7,10 +7,10 @@ spring:
 mybatis-plus:
   configuration:
     log-impl: org.apache.ibatis.logging.stdout.StdOutImpl
-  global-config:
-    db-config:
-      logic-delete-value: 0
-      logic-not-delete-value: 1
+#  global-config:
+#    db-config:
+#      logic-delete-value: 0
+#      logic-not-delete-value: 1
   mapper-locations: classpath:mapper/*Mapper.xml
   type-aliases-package: com.goxda.check.step
 server:

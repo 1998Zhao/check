@@ -19,7 +19,7 @@ import lombok.experimental.Accessors;
 @Data
 @EqualsAndHashCode(callSuper = false)
 @Accessors(chain = true)
-public class AudioVisualMetadata implements Serializable {
+public class AudioVisualMetadata implements Serializable,IMetadata {
 
     private static final long serialVersionUID = 1L;
 
