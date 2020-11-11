@@ -59,9 +59,5 @@ public class AccessionMetadata implements Serializable {
      * 答复
      */
     private String reply;
-    /**
-     * 元数据id
-     */
-    private Integer metadataId;
 
 }
