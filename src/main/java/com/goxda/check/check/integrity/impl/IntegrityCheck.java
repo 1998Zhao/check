@@ -1,7 +1,6 @@
 package com.goxda.check.check.integrity.impl;
 
-import com.goxda.check.api.entity.IMetadata;
-import com.goxda.check.api.entity.Metadata;
+import com.goxda.check.api.entity.inte.IMetadata;
 import com.goxda.check.check.integrity.IIntegrityCheck;
 /**
  * 电子文件数据总量检测 电子文件数据总量检测 电子文件内容完整性检测 归档信息包完整性检测

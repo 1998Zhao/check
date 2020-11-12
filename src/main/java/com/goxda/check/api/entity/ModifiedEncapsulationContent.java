@@ -17,13 +17,13 @@ import java.io.Serializable;
 @Data
 @EqualsAndHashCode(callSuper = false)
 @Accessors(chain = true)
-public class RecordEntityBlock implements Serializable {
+public class ModifiedEncapsulationContent implements Serializable {
 
     private static final long serialVersionUID = 1L;
 
-    private Integer encapsulationContentId;
+    private String modifiedFlag;
 
-    private Integer revisedContentId;
+    private Integer signedObjectId;
 
 
 }

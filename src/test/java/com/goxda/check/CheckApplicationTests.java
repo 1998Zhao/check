@@ -1,12 +1,11 @@
 package com.goxda.check;
 
 import com.baomidou.mybatisplus.core.conditions.query.QueryWrapper;
+import com.goxda.check.api.entity.AccessionMetadata;
 import com.goxda.check.api.entity.MetadataRule;
 import com.goxda.check.api.entity.MetadataRuleImage;
-import com.goxda.check.api.service.IAccessionMetadataService;
-import com.goxda.check.api.service.IMetadataRuleImageService;
-import com.goxda.check.api.service.IMetadataRuleService;
-import com.goxda.check.api.service.IMetadataService;
+import com.goxda.check.api.entity.TransmissionMetadata;
+import com.goxda.check.api.service.*;
 import com.goxda.check.api.service.impl.XmlTemplatesService;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -21,6 +20,10 @@ class CheckApplicationTests {
     private XmlTemplatesService templatesService;
     @Autowired
     private IMetadataRuleImageService iMetadataRuleService;
+    @Autowired
+    private IAccessionMetadataService s;
+    @Autowired
+    private ITransmissionMetadataService service;
     @Test
     void contextLoads() {
         QueryWrapper<MetadataRuleImage> wrapper = new QueryWrapper<>();
@@ -59,6 +62,7 @@ class CheckApplicationTests {
     }
     @Test
     public void test(){
-        templatesService.test();
+        List<TransmissionMetadata> rs = service.getMetadata("123");
+        System.out.println(rs);
     }
 }
