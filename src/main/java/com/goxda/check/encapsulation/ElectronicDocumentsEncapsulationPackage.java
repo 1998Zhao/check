@@ -1,12 +1,14 @@
 package com.goxda.check.encapsulation;
 
 import lombok.Data;
+import lombok.experimental.Accessors;
 
 /**
  * 电子文件封装包
  * @author zgq
  */
 @Data
+@Accessors(chain = true)
 public class ElectronicDocumentsEncapsulationPackage {
     /**
      * 格式描述
