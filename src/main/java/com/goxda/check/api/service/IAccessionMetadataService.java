@@ -16,7 +16,8 @@ import java.util.List;
 public interface IAccessionMetadataService extends IService<AccessionMetadata> {
     /**
      * 获取 收文元数据
-     * @return
+     * @param entryId 对应条目ID
+     * @return 对应元数据表
      */
-    List<AccessionMetadata> getMetadata();
+    List<AccessionMetadata> getMetadata(String entryId);
 }

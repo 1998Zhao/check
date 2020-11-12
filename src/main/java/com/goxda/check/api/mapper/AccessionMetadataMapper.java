@@ -20,7 +20,8 @@ import java.util.List;
 public interface AccessionMetadataMapper extends BaseMapper<AccessionMetadata> {
     /**
      * 获取 收文元数据
+     * @param entryId 对应条目
      * @return
      */
-    List<AccessionMetadata> getMetadata();
+    List<AccessionMetadata> getMetadata(String entryId);
 }

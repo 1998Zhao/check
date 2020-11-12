@@ -27,8 +27,7 @@ public class AccessionMetadataServiceImpl extends ServiceImpl<AccessionMetadataM
      * @return
      */
     @Override
-    public List<AccessionMetadata> getMetadata() {
-
-        return null;
+    public List<AccessionMetadata> getMetadata(String entryId) {
+        return metadataMapper.getMetadata(entryId);
     }
 }

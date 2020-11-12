@@ -1,5 +1,118 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="com.goxda.check.api.mapper.TransmissionMetadataMapper">
-
+    <resultMap id="transmissionMetadataResultMap" type="com.goxda.check.api.entity.TransmissionMetadata">
+        <result property="id" column="id" jdbcType="INTEGER"/>
+        <result property="entryid" column="entryid" jdbcType="VARCHAR"/>
+        <result property="aggregationLevel" column="aggregation_level" jdbcType="VARCHAR"/>
+        <result property="provenance" column="provenance" jdbcType="VARCHAR"/>
+        <result property="archivesName" column="archives_name" jdbcType="VARCHAR"/>
+        <result property="archivesIdentifier" column="archives_identifier" jdbcType="VARCHAR"/>
+        <result property="fondsName" column="fonds_name" jdbcType="VARCHAR"/>
+        <result property="fondsConstitutingUnitName" column="fonds_constituting_unit_name" jdbcType="VARCHAR"/>
+        <result property="electronicRecordCode" column="electronic_record_code" jdbcType="VARCHAR"/>
+        <result property="archivalCode" column="archival_code" jdbcType="VARCHAR"/>
+        <result property="fondsIdentifier" column="fonds_identifier" jdbcType="VARCHAR"/>
+        <result property="catalogueNumber" column="catalogue_number" jdbcType="VARCHAR"/>
+        <result property="year" column="year" jdbcType="INTEGER"/>
+        <result property="retentionPeriod" column="retention_period" jdbcType="VARCHAR"/>
+        <result property="organizationalStructureOrFunction" column="organizational_structure_or_function"
+                jdbcType="VARCHAR"/>
+        <result property="categoryCode" column="category_code" jdbcType="VARCHAR"/>
+        <result property="agencyFileNumber" column="agency_file_number" jdbcType="VARCHAR"/>
+        <result property="archivesFileNumber" column="archives_file_number" jdbcType="VARCHAR"/>
+        <result property="agencyItemNumber" column="agency_item_number" jdbcType="INTEGER"/>
+        <result property="archivesItemNumber" column="archives_item_number" jdbcType="INTEGER"/>
+        <result property="documentSequenceNumber" column="document_sequence_number" jdbcType="VARCHAR"/>
+        <result property="pageNumber" column="page_number" jdbcType="VARCHAR"/>
+        <result property="contentDescription" column="content_description" jdbcType="VARCHAR"/>
+        <result property="title" column="title" jdbcType="VARCHAR"/>
+        <result property="parallelTitle" column="parallel_title" jdbcType="VARCHAR"/>
+        <result property="alternativeTitle" column="alternative_title" jdbcType="VARCHAR"/>
+        <result property="otherTitleInformation" column="other_title_information" jdbcType="VARCHAR"/>
+        <result property="descriptor" column="descriptor" jdbcType="VARCHAR"/>
+        <result property="keyword" column="keyword" jdbcType="VARCHAR"/>
+        <result property="personalName" column="personal_name" jdbcType="VARCHAR"/>
+        <result property="abstract" column="abstract" jdbcType="VARCHAR"/>
+        <result property="classCode" column="class_code" jdbcType="VARCHAR"/>
+        <result property="documentNumber" column="document_number" jdbcType="VARCHAR"/>
+        <result property="author" column="author" jdbcType="VARCHAR"/>
+        <result property="date" column="date" jdbcType="VARCHAR"/>
+        <result property="documentType" column="document_type" jdbcType="VARCHAR"/>
+        <result property="precedence" column="precedence" jdbcType="VARCHAR"/>
+        <result property="principalReceiver" column="principal_receiver" jdbcType="VARCHAR"/>
+        <result property="otherReceivers" column="other_receivers" jdbcType="VARCHAR"/>
+        <result property="securityClassification" column="security_classification" jdbcType="VARCHAR"/>
+        <result property="secrecyPeriod" column="secrecy_period" jdbcType="VARCHAR"/>
+        <result property="formalCharacteristics" column="formal_characteristics" jdbcType="VARCHAR"/>
+        <result property="documentAggregationType" column="document_aggregation_type" jdbcType="VARCHAR"/>
+        <result property="totalNumberOfItems" column="total_number_of_items" jdbcType="INTEGER"/>
+        <result property="totalNumberOfPages" column="total_number_of_pages" jdbcType="INTEGER"/>
+        <result property="language" column="language" jdbcType="VARCHAR"/>
+        <result property="manuscriptType" column="manuscript_type" jdbcType="VARCHAR"/>
+        <result property="electronicAttributes" column="electronic_attributes" jdbcType="VARCHAR"/>
+        <result property="formatInformation" column="format_information" jdbcType="VARCHAR"/>
+        <result property="computerFileName" column="computer_file_name" jdbcType="VARCHAR"/>
+        <result property="computerFileSize" column="computer_file_size" jdbcType="VARCHAR"/>
+        <result property="documentCreatingApplication" column="document_creating_application" jdbcType="VARCHAR"/>
+        <result property="informationSystemDescription" column="information_system_description" jdbcType="VARCHAR"/>
+        <result property="digitizationAttributes" column="digitization_attributes" jdbcType="VARCHAR"/>
+        <result property="physicalRecordCharacteristics" column="physical_record_characteristics" jdbcType="VARCHAR"/>
+        <result property="scanningResolution" column="scanning_resolution" jdbcType="VARCHAR"/>
+        <result property="scanningColorModel" column="scanning_color_model" jdbcType="VARCHAR"/>
+        <result property="imageCompressionScheme" column="image_compression_scheme" jdbcType="VARCHAR"/>
+        <result property="electronicSignature" column="electronic_signature" jdbcType="VARCHAR"/>
+        <result property="signatureRules" column="signature_rules" jdbcType="VARCHAR"/>
+        <result property="signatureTime" column="signature_time" jdbcType="TIMESTAMP"/>
+        <result property="signer" column="signer" jdbcType="VARCHAR"/>
+        <result property="signature" column="signature" jdbcType="VARCHAR"/>
+        <result property="certificate" column="certificate" jdbcType="VARCHAR"/>
+        <result property="certificateReference" column="certificate_reference" jdbcType="VARCHAR"/>
+        <result property="signatureAlgorithmIdentifier" column="signature_algorithm_identifier" jdbcType="VARCHAR"/>
+        <result property="storageLocation" column="storage_location" jdbcType="VARCHAR"/>
+        <result property="currentLocation" column="current_location" jdbcType="VARCHAR"/>
+        <result property="offlineMediumIdentifier" column="offline_medium_identifier" jdbcType="VARCHAR"/>
+        <result property="offlineMediumStorageLocation" column="offline_medium_storage_location" jdbcType="VARCHAR"/>
+        <result property="microformIdentifier" column="microform_identifier" jdbcType="VARCHAR"/>
+        <result property="rightsManagement" column="rights_management" jdbcType="VARCHAR"/>
+        <result property="intellectualPropertyStatement" column="intellectual_property_statement" jdbcType="VARCHAR"/>
+        <result property="authorizedAgent" column="authorized_agent" jdbcType="VARCHAR"/>
+        <result property="permissionAssignment" column="permission_assignment" jdbcType="VARCHAR"/>
+        <result property="controlIdentifier" column="control_identifier" jdbcType="VARCHAR"/>
+        <result property="annotation" column="annotation" jdbcType="VARCHAR"/>
+        <result property="agentType" column="agent_type" jdbcType="VARCHAR"/>
+        <result property="agentName" column="agent_name" jdbcType="VARCHAR"/>
+        <result property="organizationCode" column="organization_code" jdbcType="VARCHAR"/>
+        <result property="positionName" column="position_name" jdbcType="VARCHAR"/>
+        <result property="businessStatus" column="business_status" jdbcType="VARCHAR"/>
+        <result property="businessActivity" column="business_activity" jdbcType="VARCHAR"/>
+        <result property="actionTime" column="action_time" jdbcType="VARCHAR"/>
+        <result property="actionMandate" column="action_mandate" jdbcType="VARCHAR"/>
+        <result property="actionDescription" column="action_description" jdbcType="VARCHAR"/>
+        <result property="entityIdentifier" column="entity_identifier" jdbcType="VARCHAR"/>
+        <result property="relationType" column="relation_type" jdbcType="VARCHAR"/>
+        <result property="relation" column="relation" jdbcType="VARCHAR"/>
+        <result property="relationDescription" column="relation_description" jdbcType="VARCHAR"/>
+        <result property="draft" column="draft" jdbcType="VARCHAR"/>
+        <result property="check" column="check" jdbcType="VARCHAR"/>
+        <result property="signDistribution" column="sign_distribution" jdbcType="VARCHAR"/>
+        <result property="review" column="review" jdbcType="VARCHAR"/>
+        <result property="register" column="register" jdbcType="VARCHAR"/>
+        <result property="seal" column="seal" jdbcType="VARCHAR"/>
+        <result property="issuance" column="issuance" jdbcType="VARCHAR"/>
+    </resultMap>
+    <select id="getMetadata" resultMap="transmissionMetadataResultMap" parameterType="String">
+       select m.id,m.entryid,m.aggregation_level,m.provenance,m.archives_name,m.archives_identifier,m.fonds_name,m.fonds_constituting_unit_name,m.electronic_record_code,
+       m.archival_code,m.fonds_identifier,m.catalogue_number,m.year,m.retention_period,m.organizational_structure_or_function,m.category_code,m.agency_file_number,
+       m.archives_file_number,m.agency_item_number,m.archives_item_number,m.document_sequence_number,m.page_number,m.content_description,m.title,m.parallel_title,
+       m.alternative_title,m.other_title_information,m.descriptor,m.keyword,m.personal_name,m.abstract as abstracts,m.class_code,m.document_number,m.author,m.date,m.document_type,
+       m.precedence,m.principal_receiver,m.other_receivers,m.security_classification,m.secrecy_period,m.formal_characteristics,m.document_aggregation_type,
+       m.total_number_of_items,m.total_number_of_pages,m.language,m.manuscript_type,m.electronic_attributes,m.format_information,m.computer_file_name,
+       m.computer_file_size,m.document_creating_application,m.information_system_description,m.digitization_attributes,m.physical_record_characteristics,
+       m.scanning_resolution,m.scanning_color_model,m.image_compression_scheme,m.electronic_signature,m.signature_rules,m.signature_time,m.signer,m.signature,
+       m.certificate,m.certificate_reference,m.signature_algorithm_identifier,m.storage_location,m.current_location,m.offline_medium_identifier,
+       m.offline_medium_storage_location,m.microform_identifier, tm.draft, tm.check, tm.sign_distribution, tm.review, tm.register, tm.seal, tm.issuance
+       from metadata m inner join
+       transmission_metadata tm on m.id = tm.id WHERE m.entryid = #{entryId}
+    </select>
 </mapper>

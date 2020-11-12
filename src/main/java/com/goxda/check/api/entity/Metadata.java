@@ -26,447 +26,447 @@ public class Metadata implements Serializable,IMetadata {
     @TableId(value = "id", type = IdType.AUTO)
     private Integer id;
 
-    private String entryid;
+    protected String entryid;
 
     /**
      * 聚合层次
      */
-    private String aggregationLevel;
+    protected String aggregationLevel;
 
     /**
      * 来源
      */
-    private String provenance;
+    protected String provenance;
 
     /**
      * 档案馆名称
      */
-    private String archivesName;
+    protected String archivesName;
 
     /**
      * 档案馆代码
      */
-    private String archivesIdentifier;
+    protected String archivesIdentifier;
 
     /**
      * 全宗名称
      */
-    private String fondsName;
+    protected String fondsName;
 
     /**
      * 立档单位名称
      */
-    private String fondsConstitutingUnitName;
+    protected String fondsConstitutingUnitName;
 
     /**
      * 电子文件号
      */
-    private String electronicRecordCode;
+    protected String electronicRecordCode;
 
     /**
      * 档号
      */
-    private String archivalCode;
+    protected String archivalCode;
 
     /**
      * 全宗号
      */
-    private String fondsIdentifier;
+    protected String fondsIdentifier;
 
     /**
      * 目录号
      */
-    private String catalogueNumber;
+    protected String catalogueNumber;
 
     /**
      * 年度
      */
-    private Integer year;
+    protected Integer year;
 
     /**
      * 保管期限
      */
-    private String retentionPeriod;
+    protected String retentionPeriod;
 
     /**
      * 机构或问题
      */
-    private String organizationalStructureOrFunction;
+    protected String organizationalStructureOrFunction;
 
     /**
      * 类别号
      */
-    private String categoryCode;
+    protected String categoryCode;
 
     /**
      * 室编案卷号
      */
-    private String agencyFileNumber;
+    protected String agencyFileNumber;
 
     /**
      * 馆编案卷号
      */
-    private String archivesFileNumber;
+    protected String archivesFileNumber;
 
     /**
      * 室编件号
      */
-    private Integer agencyItemNumber;
+    protected Integer agencyItemNumber;
 
     /**
      * 馆编件号
      */
-    private Integer archivesItemNumber;
+    protected Integer archivesItemNumber;
 
     /**
      * 文档序号
      */
-    private String documentSequenceNumber;
+    protected String documentSequenceNumber;
 
     /**
      * 页号
      */
-    private String pageNumber;
+    protected String pageNumber;
 
     /**
      * 内容描述
      */
-    private String contentDescription;
+    protected String contentDescription;
 
     /**
      * 题名
      */
-    private String title;
+    protected String title;
 
     /**
      * 并列题名
      */
-    private String parallelTitle;
+    protected String parallelTitle;
 
     /**
      * 副题名
      */
-    private String alternativeTitle;
+    protected String alternativeTitle;
 
     /**
      * 说明题名文字
      */
-    private String otherTitleInformation;
+    protected String otherTitleInformation;
 
     /**
      * 主题词
      */
-    private String descriptor;
+    protected String descriptor;
 
     /**
      * 关键词
      */
-    private String keyword;
+    protected String keyword;
 
     /**
      * 人名
      */
-    private String personalName;
+    protected String personalName;
 
     /**
      * 摘要
      */
-    private String abstractMsg;
+    protected String abstractMsg;
 
     /**
      * 分类号
      */
-    private String classCode;
+    protected String classCode;
 
     /**
      * 文件编号
      */
-    private String documentNumber;
+    protected String documentNumber;
 
     /**
      * 责任者
      */
-    private String author;
+    protected String author;
 
     /**
      * 日期
      */
-    private String date;
+    protected String date;
 
     /**
      * 文种
      */
-    private String documentType;
+    protected String documentType;
 
     /**
      * 紧急程度
      */
-    private String precedence;
+    protected String precedence;
 
     /**
      * 主送
      */
-    private String principalReceiver;
+    protected String principalReceiver;
 
     /**
      * 抄送
      */
-    private String otherReceivers;
+    protected String otherReceivers;
 
     /**
      * 密级
      */
-    private String securityClassification;
+    protected String securityClassification;
 
     /**
      * 保密期限
      */
-    private String secrecyPeriod;
+    protected String secrecyPeriod;
 
     /**
      * 形式特征
      */
-    private String formalCharacteristics;
+    protected String formalCharacteristics;
 
     /**
      * 文件组合类型
      */
-    private String documentAggregationType;
+    protected String documentAggregationType;
 
     /**
      * 件数
      */
-    private Integer totalNumberOfItems;
+    protected Integer totalNumberOfItems;
 
     /**
      * 页数
      */
-    private Integer totalNumberOfPages;
+    protected Integer totalNumberOfPages;
 
     /**
      * 语种
      */
-    private String language;
+    protected String language;
 
     /**
      * 稿本
      */
-    private String manuscriptType;
+    protected String manuscriptType;
 
     /**
      * 电子属性
      */
-    private String electronicAttributes;
+    protected String electronicAttributes;
 
     /**
      * 格式信息
      */
-    private String formatInformation;
+    protected String formatInformation;
 
     /**
      * 计算机文件名
      */
-    private String computerFileName;
+    protected String computerFileName;
 
     /**
      * 计算机文件大小
      */
-    private String computerFileSize;
+    protected String computerFileSize;
 
     /**
      * 文档创建程序
      */
-    private String documentCreatingApplication;
+    protected String documentCreatingApplication;
 
     /**
      * 信息系统描述
      */
-    private String informationSystemDescription;
+    protected String informationSystemDescription;
 
     /**
      * 数字化属性
      */
-    private String digitizationAttributes;
+    protected String digitizationAttributes;
 
     /**
      * 数字化对象形态
      */
-    private String physicalRecordCharacteristics;
+    protected String physicalRecordCharacteristics;
 
     /**
      * 扫描分辨率
      */
-    private String scanningResolution;
+    protected String scanningResolution;
 
     /**
      * 扫描色彩模式
      */
-    private String scanningColorModel;
+    protected String scanningColorModel;
 
     /**
      * 图像压缩方案
      */
-    private String imageCompressionScheme;
+    protected String imageCompressionScheme;
 
     /**
      * 电子签名
      */
-    private String electronicSignature;
+    protected String electronicSignature;
 
     /**
      * 签名规则
      */
-    private String signatureRules;
+    protected String signatureRules;
 
     /**
      * 签名时间
      */
-    private LocalDateTime signatureTime;
+    protected LocalDateTime signatureTime;
 
     /**
      * 签名人
      */
-    private String signer;
+    protected String signer;
 
     /**
      * 签名结果
      */
-    private String signature;
+    protected String signature;
 
     /**
      * 证书
      */
-    private String certificate;
+    protected String certificate;
 
     /**
      * 证书引证
      */
-    private String certificateReference;
+    protected String certificateReference;
 
     /**
      * 签名算法标识
      */
-    private String signatureAlgorithmIdentifier;
+    protected String signatureAlgorithmIdentifier;
 
     /**
      * 存储位置
      */
-    private String storageLocation;
+    protected String storageLocation;
 
     /**
      * 当前位置
      */
-    private String currentLocation;
+    protected String currentLocation;
 
     /**
      * 脱机载体编号
      */
-    private String offlineMediumIdentifier;
+    protected String offlineMediumIdentifier;
 
     /**
      * 脱机载体存址
      */
-    private String offlineMediumStorageLocation;
+    protected String offlineMediumStorageLocation;
 
     /**
      * 缩微号
      */
-    private String microformIdentifier;
+    protected String microformIdentifier;
 
     /**
      * 权限管理
      */
-    private String rightsManagement;
+    protected String rightsManagement;
 
     /**
      * 知识产权说明
      */
-    private String intellectualPropertyStatement;
+    protected String intellectualPropertyStatement;
 
     /**
      * 授权对象
      */
-    private String authorizedAgent;
+    protected String authorizedAgent;
 
     /**
      * 授权行为
      */
-    private String permissionAssignment;
+    protected String permissionAssignment;
 
     /**
      * 控制标识
      */
-    private String controlIdentifier;
+    protected String controlIdentifier;
 
     /**
      * 附注
      */
-    private String annotation;
+    protected String annotation;
 
     /**
      * 机构人员类型
      */
-    private String agentType;
+    protected String agentType;
 
     /**
      * 机构人员名称
      */
-    private String agentName;
+    protected String agentName;
 
     /**
      * 组织机构代码
      */
-    private String organizationCode;
+    protected String organizationCode;
 
     /**
      * 个人职位
      */
-    private String positionName;
+    protected String positionName;
 
     /**
      * 业务状态
      */
-    private String businessStatus;
+    protected String businessStatus;
 
     /**
      * 业务行为
      */
-    private String businessActivity;
+    protected String businessActivity;
 
     /**
      * 行为时间
      */
-    private String actionTime;
+    protected String actionTime;
 
     /**
      * 行为依据
      */
-    private String actionMandate;
+    protected String actionMandate;
 
     /**
      * 行为描述
      */
-    private String actionDescription;
+    protected String actionDescription;
 
     /**
      * 实体标识符
      */
-    private String entityIdentifier;
+    protected String entityIdentifier;
 
     /**
      * 关系类型
      */
-    private String relationType;
+    protected String relationType;
 
     /**
      * 关系
      */
-    private String relation;
+    protected String relation;
 
     /**
      * 关系描述
      */
-    private String relationDescription;
+    protected String relationDescription;
 
     public String getAbstract() {
         return abstractMsg;
