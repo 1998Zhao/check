@@ -2,6 +2,7 @@ package com.goxda.check;
 
 import com.goxda.check.api.entity.MetadataRule;
 import com.goxda.check.api.entity.MetadataRuleImage;
+import com.goxda.check.api.entity.MetadataRulePkg;
 import lombok.extern.slf4j.Slf4j;
 import org.apache.poi.xwpf.usermodel.XWPFDocument;
 import org.apache.poi.xwpf.usermodel.XWPFTable;
@@ -17,7 +18,7 @@ import java.util.List;
 @Slf4j
 public class Word {
     public static List<MetadataRule> read(){
-        String path = "C:\\Users\\admin\\Desktop\\22.docx";
+        String path = "C:\\Users\\admin\\Desktop\\55.docx";
         FileInputStream inputStream;
         XWPFDocument xwpfDocument;
         MetadataRule metadata ;
@@ -44,20 +45,19 @@ public class Word {
         }
         return datas;
     }
-    public static List<MetadataRuleImage> readPicT(){
-        String path = "D:\\44.docx";
+    public static List<MetadataRulePkg> readPicT(){
+        String path = "D:\\55.docx";
         FileInputStream inputStream = null;
         XWPFDocument xwpfDocument;
         try{
-
-            List<MetadataRuleImage> rules = new ArrayList<>();
+            List<MetadataRulePkg> rules = new ArrayList<>();
             inputStream = new FileInputStream(path);
             xwpfDocument = new XWPFDocument(inputStream);
             List<XWPFTable> list = xwpfDocument.getTables();
             for (XWPFTable table : list) {
                 List<String> values = new ArrayList<>();
                 List<XWPFTableRow> rowList = table.getRows();
-                MetadataRuleImage rule = new MetadataRuleImage();
+                MetadataRulePkg rule = new MetadataRulePkg();
                 for (int i = 0; i < rowList.size(); i++) {
                     XWPFTableRow row = rowList.get(i);
                     StringBuilder v = new StringBuilder();
@@ -87,6 +87,9 @@ public class Word {
 
                     values.add(v.toString());
                 }
+                if (values.size()<10){
+                    continue;
+                }
                 Field[] fields = rule.getClass().getDeclaredFields();
                 for (int i = 0; i < values.size(); i++) {
                     fields[i+2].setAccessible(true);
@@ -95,10 +98,7 @@ public class Word {
                 rule.setType("1");
                 rules.add(rule);
             }
-            for (MetadataRuleImage rule : rules) {
-                System.out.println(rule);
-
-            }
+            rules.forEach(System.out::println);
             return rules;
         } catch (IOException | IllegalAccessException e) {
             e.printStackTrace();

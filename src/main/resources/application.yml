@@ -5,8 +5,8 @@ spring:
     url: jdbc:mysql://localhost:3306/test?useSSL=false&serverTimezone=UTC
     type: com.alibaba.druid.pool.DruidDataSource
 mybatis-plus:
-  configuration:
-    log-impl: org.apache.ibatis.logging.stdout.StdOutImpl
+  #configuration:
+    #log-impl: org.apache.ibatis.logging.stdout.StdOutImpl
 #  global-config:
 #    db-config:
 #      logic-delete-value: 0

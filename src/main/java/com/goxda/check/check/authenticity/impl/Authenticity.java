@@ -5,11 +5,9 @@ import cn.hutool.core.util.StrUtil;
 import com.goxda.check.api.entity.CheckStep;
 import com.goxda.check.api.entity.Metadata;
 import com.goxda.check.api.entity.MetadataRule;
-import com.goxda.check.api.service.IMetadataService;
-import com.goxda.check.api.service.impl.MetadataServiceImpl;
+import com.goxda.check.api.entity.inte.IMetadataRule;
 import com.goxda.check.check.authenticity.IAuthenticity;
-
-import com.goxda.check.factory.MetadataServiceSingle;
+import com.goxda.check.metadate.IMetadata;
 import com.goxda.check.metadate.aip.ArchivalInformationPackage;
 import com.goxda.check.metadate.fixity.FixityInformation;
 import com.goxda.check.result.Result;
@@ -41,7 +39,7 @@ public class Authenticity implements IAuthenticity {
     /**
      * 元数据
      */
-    private final Metadata metadata;
+    private final IMetadata metadata;
     /**
      * 归档信息包
      */
@@ -52,7 +50,7 @@ public class Authenticity implements IAuthenticity {
     private final FixityInformation fixityInformation;
     private final List<MetadataRule> metadataRules;
 
-    public Authenticity(CheckStep checkStep, Metadata metadata, ArchivalInformationPackage aip, FixityInformation fixityInformation, List<MetadataRule> metadataRules) {
+    public Authenticity(CheckStep checkStep, IMetadata metadata, ArchivalInformationPackage aip, FixityInformation fixityInformation, List<MetadataRule> metadataRules) {
         this.checkStep = checkStep;
         this.metadata = metadata;
         this.aip = aip;
@@ -119,11 +117,20 @@ public class Authenticity implements IAuthenticity {
     }
     public Object getMetadataAttr(String name) throws NoSuchMethodException, InvocationTargetException, IllegalAccessException {
         String methodName = Utils.getMethodName(name);
-        Class<? extends Metadata> clasz = metadata.getClass();
+        Class<? extends IMetadata> clasz = metadata.getClass();
         Method method = clasz.getDeclaredMethod(methodName);
         return method.invoke(metadata);
     }
-    boolean lenCheck(MetadataRule rule) throws NoSuchMethodException, IllegalAccessException, InvocationTargetException {
+
+    /**
+     * 长度检测
+     * @param rule 检测规则
+     * @return 通过
+     * @throws NoSuchMethodException
+     * @throws IllegalAccessException
+     * @throws InvocationTargetException
+     */
+    boolean lenCheck(IMetadataRule rule) throws NoSuchMethodException, IllegalAccessException, InvocationTargetException {
         //获取元数据
         String name = rule.getName();
         Object attr = getMetadataAttr(name);
@@ -332,26 +339,26 @@ public class Authenticity implements IAuthenticity {
      * @return 1
      * 重复性检验
      */
-    public Map<String,String> databaseMDRepeatCheck(MetadataRule metadataRule){
-        Map<String,String> map = new HashMap<>();
-        String name = metadataRule.getName();
-        String namecn = metadataRule.getNameCn();
-        try{
-            if ("不可重复".equals(metadataRule.getRepeatability())){
-                IMetadataService service = MetadataServiceSingle.getInstance();
-                String v = (String) getMetadataAttr(name);
-                boolean b = service.checkRepeat(name,v);
-                if (b){
-                    map.put(namecn,"数据重复");
-                }
-            }
-            return map;
-        } catch (NoSuchMethodException | IllegalAccessException | InvocationTargetException e) {
-            map.put("重复性检测","系统错误");
-            log.error(e.getMessage());
-            return map;
-        }
-    }
+    //public Map<String,String> databaseMDRepeatCheck(MetadataRule metadataRule){
+//        Map<String,String> map = new HashMap<>();
+//        String name = metadataRule.getName();
+//        String namecn = metadataRule.getNameCn();
+//        try{
+//            if ("不可重复".equals(metadataRule.getRepeatability())){
+//                IMetadataService service = MetadataServiceSingle.getInstance();
+//                String v = (String) getMetadataAttr(name);
+//                boolean b = service.checkRepeat(name,v);
+//                if (b){
+//                    map.put(namecn,"数据重复");
+//                }
+//            }
+//            return map;
+//        } catch (NoSuchMethodException | IllegalAccessException | InvocationTargetException e) {
+//            map.put("重复性检测","系统错误");
+//            log.error(e.getMessage());
+//            return map;
+//        }
+    //}
     /**
      * 重复性检验
      */

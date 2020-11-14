@@ -1,10 +1,10 @@
 package com.goxda.check.api.entity;
 
 import com.baomidou.mybatisplus.annotation.IdType;
-import com.baomidou.mybatisplus.annotation.TableId;
 import com.baomidou.mybatisplus.annotation.TableField;
 import java.io.Serializable;
 
+import com.baomidou.mybatisplus.annotation.TableId;
 import com.goxda.check.api.entity.inte.IMetadataRule;
 import lombok.Data;
 import lombok.EqualsAndHashCode;
@@ -16,17 +16,16 @@ import lombok.experimental.Accessors;
  * </p>
  *
  * @author ah
- * @since 2020-11-06
+ * @since 2020-11-14
  */
 @Data
 @EqualsAndHashCode(callSuper = false)
 @Accessors(chain = true)
-public class MetadataRule implements Serializable, IMetadataRule {
+public class MetadataRulePkg implements Serializable, IMetadataRule {
 
     private static final long serialVersionUID = 1L;
-
     @TableId(value = "id", type = IdType.AUTO)
-    private Integer id;
+    private int id;
 
     /**
      * 编号
@@ -58,9 +57,6 @@ public class MetadataRule implements Serializable, IMetadataRule {
      * 约束性
      */
     private String constraintion;
-
-
-
 
     /**
      * 可重复性
@@ -111,16 +107,37 @@ public class MetadataRule implements Serializable, IMetadataRule {
      * 注释
      */
     private String comments;
+
     /**
-     * 类型
+     * 层次模型
+     */
+    private String levelModel;
+
+    /**
+     * XML元素属性
+     */
+    private String elementAttr;
+    /**
+     * 源代码
+     */
+    private String sourceCode;
+
+    /**
+     * 类型 此处为元数据类型 文书类 照片类 录音录像类
      */
     private String type;
-    /**
-     * 相关正则
-     */
-    private String regex;
+
     /**
      * 条件
      */
     private String conditions;
+
+    /**
+     * 相关正则
+     */
+    private String regex;
+
+
+
+
 }
