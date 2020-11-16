@@ -50,7 +50,6 @@ public class IntegrityCheck implements IIntegrityCheck {
     }
     /**
      * 电子文件内容完整性检测
-     *
      * @return 是否通过
      */
     @Override

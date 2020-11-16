@@ -1,168 +1,168 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<p:电子文件封装包 xmlns:p="http://www.saac.gov.cn/standards/ERM/encapsulation" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.saac.gov.cn/standards/ERM/encapsulation a.xsd ">
-    <p:封装包格式描述 th:text="${pkg.formatDescription}"></p:封装包格式描述>
-    <p:版本 th:text="${pkg.version}"></p:版本>
-    <p:被签名对象 eep版本="2009">
-        <p:封装包类型 th:text="${pkg.signedObject.type}">原始型</p:封装包类型>
-        <p:封装包类型描述 th:text="${pkg.signedObject.packageTypeDescription}"> 本封装包包含电子文件数据及其元数据，原始封装，未经修改</p:封装包类型描述>
-        <p:封装包创建时间 th:text="${pkg.signedObject.packageCreationTime}"></p:封装包创建时间>
-        <p:封装包创建单位 th:text="${pkg.signedObject.packageCreator}">p:封装包创建单位</p:封装包创建单位>
-        <p:封装内容>
-            <p:文件实体块>
-                <p:文件实体>
-                    <p:聚合层次 th:text="${pkg.signedObject.iEncapsulationContent.recordEntityBlock.recordEntity.aggregationLevel}"></p:聚合层次>
-                    <p:来源>
-                        <p:档案馆名称 th:text="${pkg.signedObject.iEncapsulationContent.recordEntityBlock.recordEntity.provenance.archivesName}"></p:档案馆名称>
-                        <p:档案馆代码 th:text="${pkg.signedObject.iEncapsulationContent.recordEntityBlock.recordEntity.provenance.archivesIdentifier}"></p:档案馆代码>
-                        <p:全宗名称 th:text="${pkg.signedObject.iEncapsulationContent.recordEntityBlock.recordEntity.provenance.fondsName}"></p:全宗名称>
-                        <p:立档单位名称 th:text="${pkg.signedObject.iEncapsulationContent.recordEntityBlock.recordEntity.provenance.fondsConstitutingUnitName}"></p:立档单位名称>
-                    </p:来源>
-                    <p:电子文件号 th:text="${pkg.signedObject.iEncapsulationContent.recordEntityBlock.recordEntity.electronicRecordCode}"></p:电子文件号>
-                    <p:档号>
-                        <p:全宗号 th:text="${pkg.signedObject.iEncapsulationContent.recordEntityBlock.recordEntity.archivalCode.fondsIdentifier}"></p:全宗号>
-                        <p:目录号 th:text="${pkg.signedObject.iEncapsulationContent.recordEntityBlock.recordEntity.archivalCode.catalogueNumber}"></p:目录号>
-                        <p:年度 th:text="${pkg.signedObject.iEncapsulationContent.recordEntityBlock.recordEntity.archivalCode.year}"></p:年度>
-                        <p:保管期限 th:text="${pkg.signedObject.iEncapsulationContent.recordEntityBlock.recordEntity.archivalCode.retentionPeriod}"></p:保管期限>
-                        <p:机构或问题 th:text="${pkg.signedObject.iEncapsulationContent.recordEntityBlock.recordEntity.archivalCode.organizationalStructureOrFunction}"></p:机构或问题>
-                        <p:类别号 th:text="${pkg.signedObject.iEncapsulationContent.recordEntityBlock.recordEntity.archivalCode.categoryCode}"></p:类别号>
-                        <p:室编案卷号 th:text="${pkg.signedObject.iEncapsulationContent.recordEntityBlock.recordEntity.archivalCode.agencyFileNumber}"></p:室编案卷号>
-                        <p:馆编案卷号 th:text="${pkg.signedObject.iEncapsulationContent.recordEntityBlock.recordEntity.archivalCode.archivesFileNumber}"></p:馆编案卷号>
-                        <p:馆编件号 th:text="${pkg.signedObject.iEncapsulationContent.recordEntityBlock.recordEntity.archivalCode.archivesItemNumber}"></p:馆编件号>
-                        <!--                        <p:室编件号>1</p:室编件号>-->
-                        <p:页号 th:text="${pkg.signedObject.iEncapsulationContent.recordEntityBlock.recordEntity.archivalCode.pageNumber}">p:页号</p:页号>
-                    </p:档号>
-                    <p:内容描述>
-                        <p:题名 th:text="${pkg.signedObject.iEncapsulationContent.recordEntityBlock.recordEntity.contentDescription.title}">p:题名</p:题名>
-                        <p:并列题名 th:text="${pkg.signedObject.iEncapsulationContent.recordEntityBlock.recordEntity.contentDescription.parallelTitle}">p:并列题名</p:并列题名>
-                        <p:副题名th:text="${pkg.signedObject.iEncapsulationContent.recordEntityBlock.recordEntity.contentDescription.alternativeTitle}">p:副题名</p:副题名>
-                        <p:说明题名文字 th:text="${pkg.signedObject.iEncapsulationContent.recordEntityBlock.recordEntity.contentDescription.otherTitleInformation}">p:说明题名文字</p:说明题名文字>
-                        <p:主题词 主题词表名称="" th:text="${pkg.signedObject.iEncapsulationContent.recordEntityBlock.recordEntity.contentDescription.descriptor}">p:主题词</p:主题词>
-                        <p:关键词 th:text="${pkg.signedObject.iEncapsulationContent.recordEntityBlock.recordEntity.contentDescription.keyword}">p:关键词</p:关键词>
-                        <p:人名 th:text="${pkg.signedObject.iEncapsulationContent.recordEntityBlock.recordEntity.contentDescription.personalName}">p:人名</p:人名>
-                        <p:摘要 th:text="${pkg.signedObject.iEncapsulationContent.recordEntityBlock.recordEntity.contentDescription.abstracts}">p:摘要</p:摘要>
-                        <p:分类号 th:text="${pkg.signedObject.iEncapsulationContent.recordEntityBlock.recordEntity.contentDescription.classCode}">p:分类号</p:分类号>
-                        <p:文件编号 th:text="${pkg.signedObject.iEncapsulationContent.recordEntityBlock.recordEntity.contentDescription.documentNumber}">p:文件编号</p:文件编号>
-                        <p:责任者 th:text="${pkg.signedObject.iEncapsulationContent.recordEntityBlock.recordEntity.contentDescription.author}">p:责任者</p:责任者>
-                        <p:日期 th:text="${pkg.signedObject.iEncapsulationContent.recordEntityBlock.recordEntity.contentDescription.date}">p:日期</p:日期>
-                        <p:文种 th:text="${pkg.signedObject.iEncapsulationContent.recordEntityBlock.recordEntity.contentDescription.documentType}">p:文种</p:文种>
-                        <p:紧急程度 th:text="${pkg.signedObject.iEncapsulationContent.recordEntityBlock.recordEntity.contentDescription.precedence}">p:紧急程度</p:紧急程度>
-                        <p:主送 th:text="${pkg.signedObject.iEncapsulationContent.recordEntityBlock.recordEntity.contentDescription.principalReceiver}">p:主送</p:主送>
-                        <p:抄送 th:text="${pkg.signedObject.iEncapsulationContent.recordEntityBlock.recordEntity.contentDescription.otherReceivers}">p:抄送</p:抄送>
-                        <p:密级 th:text="${pkg.signedObject.iEncapsulationContent.recordEntityBlock.recordEntity.contentDescription.securityClassification}">p:密级</p:密级>
-                        <p:保密期限 th:text="${pkg.signedObject.iEncapsulationContent.recordEntityBlock.recordEntity.contentDescription.secrecyPeriod}">p:保密期限</p:保密期限>
-                    </p:内容描述>
-                    <p:形式特征>
-                        <p:文件组合类型 th:text="${pkg.signedObject.iEncapsulationContent.recordEntityBlock.recordEntity.formalCharacteristics.documentAggregationType}">单件</p:文件组合类型>
-                        <p:页数 th:text="${pkg.signedObject.iEncapsulationContent.recordEntityBlock.recordEntity.formalCharacteristics.totalNumberOfPages}">1</p:页数>
-                        <p:语种 th:text="${pkg.signedObject.iEncapsulationContent.recordEntityBlock.recordEntity.formalCharacteristics.language}">汉语</p:语种>
-                        <p:稿本 th:text="${pkg.signedObject.iEncapsulationContent.recordEntityBlock.recordEntity.formalCharacteristics.manuscriptType}">p:稿本</p:稿本>
-                    </p:形式特征>
-                    <p:存储位置>
-                        <p:当前位置 th:text="${pkg.signedObject.iEncapsulationContent.recordEntityBlock.recordEntity.storageLocation.currentLocation}">p:当前位置</p:当前位置>
-                        <p:脱机载体编号 th:text="${pkg.signedObject.iEncapsulationContent.recordEntityBlock.recordEntity.storageLocation.offlineMediumIdentifier}">p:脱机载体编号</p:脱机载体编号>
-                        <p:脱机载体存址 th:text="${pkg.signedObject.iEncapsulationContent.recordEntityBlock.recordEntity.storageLocation.offlineMediumStorageLocation}">p:脱机载体存址</p:脱机载体存址>
-                        <p:缩微号 th:text="${pkg.signedObject.iEncapsulationContent.recordEntityBlock.recordEntity.storageLocation.microformIdentifier}">p:缩微号</p:缩微号>
-                    </p:存储位置>
-                    <p:权限管理>
-                        <p:知识产权说明 th:text="${pkg.signedObject.iEncapsulationContent.recordEntityBlock.recordEntity.rightsManagement.intellectualPropertyStatement}">p:知识产权说明</p:知识产权说明>
-                        <p:授权>
-                            <p:授权对象 th:text="${pkg.signedObject.iEncapsulationContent.recordEntityBlock.recordEntity.rightsManagement.authorization.authorizedAgent}">p:授权对象</p:授权对象>
-                            <p:授权行为 th:text="${pkg.signedObject.iEncapsulationContent.recordEntityBlock.recordEntity.rightsManagement.authorization.permissionAssignment}">p:授权行为</p:授权行为>
-                        </p:授权>
-                        <p:控制标识 th:text="${pkg.signedObject.iEncapsulationContent.recordEntityBlock.recordEntity.rightsManagement.controlIdentifier}">p:控制标识</p:控制标识>
-                    </p:权限管理>
-                    <p:信息系统描述 th:text="${pkg.signedObject.iEncapsulationContent.recordEntityBlock.recordEntity.recordEntity.informationSystemDescription}">p:信息系统描述</p:信息系统描述>
-                    <p:附注 th:text="${pkg.signedObject.iEncapsulationContent.recordEntityBlock.recordEntity.recordEntity.annotation}">p:附注</p:附注>
-                    <p:文件数据>
-                        <p:文档>
-                            <p:文档标识符 th:text="${pkg.signedObject.iEncapsulationContent.recordEntityBlock.recordEntity.recordData.document.documentIdentifier}">idvalue0</p:文档标识符>
-                            <p:文档序号 th:text="${pkg.signedObject.iEncapsulationContent.recordEntityBlock.recordEntity.recordData.document.documentId}">p:文档序号</p:文档序号>
-                            <p:文档主从声明 th:text="${pkg.signedObject.iEncapsulationContent.recordEntityBlock.recordEntity.recordData.document.statementOnMainDocumentOrAttached}">主文档</p:文档主从声明>
-                            <p:题名 th:text="${pkg.signedObject.iEncapsulationContent.recordEntityBlock.recordEntity.recordData.document.title}">p:题名</p:题名>
-                            <p:文档数据 th:attr="文档数据ID=${pkg.signedObject.iEncapsulationContent.recordEntityBlock.recordEntity.recordData.document.documentData.documentId}" >
-                                <p:编码 >
-                                    <p:电子属性>
-                                        <p:格式信息 th:text="${pkg.signedObject.iEncapsulationContent.recordEntityBlock.recordEntity.recordData.document.documentData.encoding.electronicAttributes.formatInformation}">p:格式信息</p:格式信息>
-                                        <p:计算机文件名 th:text="${pkg.signedObject.iEncapsulationContent.recordEntityBlock.recordEntity.recordData.document.documentData.encoding.electronicAttributes.computerFileName}">p:计算机文件名</p:计算机文件名>
-                                        <p:计算机文件大小 th:text="${pkg.signedObject.iEncapsulationContent.recordEntityBlock.recordEntity.recordData.document.documentData.encoding.electronicAttributes.computerFileSize}">p:计算机文件大小</p:计算机文件大小>
-                                        <p:文档创建程序 th:text="${pkg.signedObject.iEncapsulationContent.recordEntityBlock.recordEntity.recordData.document.documentData.encoding.electronicAttributes.documentCreatingApplication}">p:文档创建程序</p:文档创建程序>
-                                    </p:电子属性>
-                                    <p:数字化属性>
-                                        <p:数字化对象形态 th:text="${pkg.signedObject.iEncapsulationContent.recordEntityBlock.recordEntity.recordData.document.documetnData.encoding.digitizationAttributes.physicalRecordCharacteristics}">p:数字化对象形态</p:数字化对象形态>
-                                        <p:扫描分辨率 th:text="${pkg.signedObject.iEncapsulationContent.recordEntityBlock.recordEntity.recordData.document.documetnData.encoding.digitizationAttributes.scanningResolution}">p:扫描分辨率</p:扫描分辨率>
-                                        <p:扫描色彩模式 th:text="${pkg.signedObject.iEncapsulationContent.recordEntityBlock.recordEntity.recordData.document.documetnData.encoding.digitizationAttributes.scanningColorModel}">黑白二值</p:扫描色彩模式>
-                                        <p:图像压缩方案 th:text="${pkg.signedObject.iEncapsulationContent.recordEntityBlock.recordEntity.recordData.document.documetnData.encoding.digitizationAttributes.imageCompressionScheme}">p:图像压缩方案</p:图像压缩方案>
-                                    </p:数字化属性>
-                                    <p:编码描述 th:text="${pkg.signedObject.iEncapsulationContent.recordEntityBlock.recordEntity.recordData.document.documetnData.encoding.}">本封装包中“编码数据”元素存储的是计算机文件二进制流的Base64编码，有关Base64编码规则参见IETF RFC 2045多用途邮件扩展（MIME）第一部分：互联网信息体格式。当提取和显现封装在编码数据元素中的计算机文件时，应对Base64编码进行反编码，并依据封装包中“反编码关键字”元素中记录的值还原计算机文件的扩展名</p:编码描述>
-                                    <p:反编码关键字 th:text="${pkg.signedObject.iEncapsulationContent.recordEntityBlock.recordEntity.recordData.document.documetnData.encoding.renderingKeyword}">p:反编码关键字</p:反编码关键字>
-                                    <p:编码数据 引用编码数据ID="idvalue0" 编码数据ID="idvalue3" th:text="${pkg.signedObject.iEncapsulationContent.recordEntityBlock.recordEntity.recordData.document.documetnData.encoding.encodingData}">MA==</p:编码数据>
-                                </p:编码>
-                            </p:文档数据>
-                        </p:文档>
-                    </p:文件数据>
-                </p:文件实体>
-                <p:文件实体关系>
-                    <p:文件标识符 th:text="${pkg.signedObject.iEncapsulationContent.recordEntityBlock.recordEntitiesRelation.recordIdentifier}">p:文件标识符</p:文件标识符>
-                    <p:被关联文件标识符 th:text="${pkg.signedObject.iEncapsulationContent.recordEntityBlock.recordEntitiesRelation.relatedRecordIdentifier}">p:被关联文件标识符</p:被关联文件标识符>
-                    <p:关系类型 th:text="${pkg.signedObject.iEncapsulationContent.recordEntityBlock.recordEntitiesRelation.relationType}">p:关系类型</p:关系类型>
-                    <p:关系 th:text="${pkg.signedObject.iEncapsulationContent.recordEntityBlock.recordEntitiesRelation.relation}">p:关系</p:关系>
-                    <p:关系描述 th:text="${pkg.signedObject.iEncapsulationContent.recordEntityBlock.recordEntitiesRelation.relationDescription}">p:关系描述</p:关系描述>
-                </p:文件实体关系>
-            </p:文件实体块>
-            <p:业务实体块>
-                <p:业务实体>
-                    <p:业务标识符 th:text="${pkg.signedObject.iEncapsulationContent.businessEntityBlock.businessEntity.businessEntityIdentifier}">p:业务标识符</p:业务标识符>
-                    <p:机构人员标识符 th:text="${pkg.signedObject.iEncapsulationContent.businessEntityBlock.businessEntity.agentEntityIdentifier}">p:机构人员标识符</p:机构人员标识符>
-                    <p:文件标识符 th:text="${pkg.signedObject.iEncapsulationContent.businessEntityBlock.businessEntity.recordIdentifier}">p:文件标识符</p:文件标识符>
-                    <p:业务状态 th:text="${pkg.signedObject.iEncapsulationContent.businessEntityBlock.businessEntity.businessStatus}">历史行为</p:业务状态>
-                    <p:业务行为 th:text="${pkg.signedObject.iEncapsulationContent.businessEntityBlock.businessEntity.businessActivity}">p:业务行为</p:业务行为>
-                    <p:行为时间 th:text="${pkg.signedObject.iEncapsulationContent.businessEntityBlock.businessEntity.actionTime}">p:行为时间</p:行为时间>
-                    <p:行为依据 th:text="${pkg.signedObject.iEncapsulationContent.businessEntityBlock.businessEntity.actionMandate}">p:行为依据</p:行为依据>
-                    <p:行为描述 th:text="${pkg.signedObject.iEncapsulationContent.businessEntityBlock.businessEntity.actionDescription}">p:行为描述</p:行为描述>
-                </p:业务实体>
-            </p:业务实体块>
-            <p:机构人员实体块>
-                <p:机构人员实体>
-                    <p:机构人员标识符 th:text="${pkg.signedObject.iEncapsulationContent.agentEntityBlock.agentEntity.agentEntityId}">p:机构人员标识符</p:机构人员标识符>
-                    <p:机构人员类型 th:text="${pkg.signedObject.iEncapsulationContent.agentEntityBlock.agentEntity.agentType}">单位</p:机构人员类型>
-                    <p:机构人员名称 th:text="${pkg.signedObject.iEncapsulationContent.agentEntityBlock.agentEntity.agentName}">p:机构人员名称</p:机构人员名称>
-                    <p:组织机构代码 th:text="${pkg.signedObject.iEncapsulationContent.agentEntityBlock.agentEntity.organizationCode}">p:组织机构代码</p:组织机构代码>
-                    <p:个人职位 th:text="${pkg.signedObject.iEncapsulationContent.agentEntityBlock.agentEntity.positionName}">p:个人职位</p:个人职位>
-                </p:机构人员实体>
-                <p:机构人员实体关系>
-                    <p:机构人员标识符 th:text="${pkg.signedObject.iEncapsulationContent.agentEntityBlock.agentEntityRelation.agentEntityId}">p:机构人员标识符</p:机构人员标识符>
-                    <p:被关联机构人员标识符 th:text="${pkg.signedObject.iEncapsulationContent.agentEntityBlock.agentEntityRelation.relatedAgentIdentifier}">p:被关联机构人员标识符</p:被关联机构人员标识符>
-                    <p:关系类型 th:text="${pkg.signedObject.iEncapsulationContent.agentEntityBlock.agentEntityRelation.relationType}">p:关系类型</p:关系类型>
-                    <p:关系 th:text="${pkg.signedObject.iEncapsulationContent.agentEntityBlock.agentEntityRelation.relation}">p:关系</p:关系>
-                    <p:关系描述 th:text="${pkg.signedObject.iEncapsulationContent.agentEntityBlock.agentEntityRelation.relationDescription}">p:关系描述</p:关系描述>
-                </p:机构人员实体关系>
-            </p:机构人员实体块>
-        </p:封装内容>
-    </p:被签名对象>
-    <p:电子签名块>
-        <p:电子签名>
-            <p:签名标识符 th:text="${pkg.electronicSignatureBlock.electronicSignature.signatureIdentifier}">idvalue4</p:签名标识符>
-            <p:签名规则 th:text="${pkg.electronicSignatureBlock.electronicSignature.signatureRules}">p:签名规则</p:签名规则>
-            <p:签名时间 th:text="${pkg.electronicSignatureBlock.electronicSignature.signatureTime}">2001-12-31T12:00:00</p:签名时间>
-            <p:签名人 th:text="${pkg.electronicSignatureBlock.electronicSignature.signer}">p:签名人</p:签名人>
-            <p:签名结果 th:text="${pkg.electronicSignatureBlock.electronicSignature.signature}">MA==</p:签名结果>
-            <p:证书块>
-                <p:证书 th:text="${pkg.electronicSignatureBlock.electronicSignature.certificateBlock.certificate}">MA==</p:证书>
-                <p:证书引证 th:text="${pkg.electronicSignatureBlock.electronicSignature.certificateBlock.certificateReference}">http://tempuri.org</p:证书引证>
-            </p:证书块>
-            <p:签名算法标识 th:text="${pkg.electronicSignatureBlock.electronicSignature.signatureAlgorithmIdentifier}">p:签名算法标识</p:签名算法标识>
-        </p:电子签名>
-    </p:电子签名块>
-    <p:锁定签名>
-        <p:被锁定签名标识符 th:text="${pkg.lockSignature.lockedSignatureIdentifier}"></p:被锁定签名标识符>
-        <p:签名规则 th:text="${pkg.lockSignature.signatureRules}"></p:签名规则>
-        <p:签名时间 th:text="${pkg.lockSignature.signatureTime}">2001-12-31T12:00:00</p:签名时间>
-        <p:签名人 th:text="${pkg.lockSignature.signer}">p:签名人</p:签名人>
-        <p:签名结果 th:text="${pkg.lockSignature.signature}">MA==</p:签名结果>
-        <p:证书块>
-            <p:证书 th:text="${pkg.lockSignature.certificateBlock.certificate}">MA==</p:证书>
-            <p:证书引证 th:text="${pkg.lockSignature.certificateBlock.certificateReference}">http://tempuri.org</p:证书引证>
-        </p:证书块>
-        <p:签名算法标识 th:text="${pkg.lockSignature.signatureAlgorithmIdentifier}">p:签名算法标识</p:签名算法标识>
-    </p:锁定签名>
-</p:电子文件封装包>
+<电子文件封装包>
+    <封装包格式描述 th:text="${pkg.formatDescription}"></封装包格式描述>
+    <版本 th:text="${pkg.version}"></版本>
+    <被签名对象 eep版本="2009">
+        <封装包类型 th:text="${pkg.signedObject.type}">原始型</封装包类型>
+        <封装包类型描述 th:text="${pkg.signedObject.packageTypeDescription}"> 本封装包包含电子文件数据及其元数据，原始封装，未经修改</封装包类型描述>
+        <封装包创建时间 th:text="${pkg.signedObject.packageCreationTime}"></封装包创建时间>
+        <封装包创建单位 th:text="${pkg.signedObject.packageCreator}">封装包创建单位</封装包创建单位>
+        <封装内容>
+            <文件实体块>
+                <文件实体>
+                    <聚合层次 th:text="${pkg.signedObject.iEncapsulationContent.recordEntityBlock.recordEntity.aggregationLevel}"></聚合层次>
+                    <来源>
+                        <档案馆名称 th:text="${pkg.signedObject.iEncapsulationContent.recordEntityBlock.recordEntity.provenance.archivesName}"></档案馆名称>
+                        <档案馆代码 th:text="${pkg.signedObject.iEncapsulationContent.recordEntityBlock.recordEntity.provenance.archivesIdentifier}"></档案馆代码>
+                        <全宗名称 th:text="${pkg.signedObject.iEncapsulationContent.recordEntityBlock.recordEntity.provenance.fondsName}"></全宗名称>
+                        <立档单位名称 th:text="${pkg.signedObject.iEncapsulationContent.recordEntityBlock.recordEntity.provenance.fondsConstitutingUnitName}"></立档单位名称>
+                    </来源>
+                    <电子文件号 th:text="${pkg.signedObject.iEncapsulationContent.recordEntityBlock.recordEntity.electronicRecordCode}"></电子文件号>
+                    <档号>
+                        <全宗号 th:text="${pkg.signedObject.iEncapsulationContent.recordEntityBlock.recordEntity.archivalCode.fondsIdentifier}"></全宗号>
+                        <目录号 th:text="${pkg.signedObject.iEncapsulationContent.recordEntityBlock.recordEntity.archivalCode.catalogueNumber}"></目录号>
+                        <年度 th:text="${pkg.signedObject.iEncapsulationContent.recordEntityBlock.recordEntity.archivalCode.year}"></年度>
+                        <保管期限 th:text="${pkg.signedObject.iEncapsulationContent.recordEntityBlock.recordEntity.archivalCode.retentionPeriod}"></保管期限>
+                        <机构或问题 th:text="${pkg.signedObject.iEncapsulationContent.recordEntityBlock.recordEntity.archivalCode.organizationalStructureOrFunction}"></机构或问题>
+                        <类别号 th:text="${pkg.signedObject.iEncapsulationContent.recordEntityBlock.recordEntity.archivalCode.categoryCode}"></类别号>
+                        <室编案卷号 th:text="${pkg.signedObject.iEncapsulationContent.recordEntityBlock.recordEntity.archivalCode.agencyFileNumber}"></室编案卷号>
+                        <馆编案卷号 th:text="${pkg.signedObject.iEncapsulationContent.recordEntityBlock.recordEntity.archivalCode.archivesFileNumber}"></馆编案卷号>
+                        <馆编件号 th:text="${pkg.signedObject.iEncapsulationContent.recordEntityBlock.recordEntity.archivalCode.archivesItemNumber}"></馆编件号>
+                        <!--                        <室编件号>1</室编件号>-->
+                        <页号 th:text="${pkg.signedObject.iEncapsulationContent.recordEntityBlock.recordEntity.archivalCode.pageNumber}">页号</页号>
+                    </档号>
+                    <内容描述>
+                        <题名 th:text="${pkg.signedObject.iEncapsulationContent.recordEntityBlock.recordEntity.contentDescription.title}">题名</题名>
+                        <并列题名 th:text="${pkg.signedObject.iEncapsulationContent.recordEntityBlock.recordEntity.contentDescription.parallelTitle}">并列题名</并列题名>
+                        <副题名 th:text="${pkg.signedObject.iEncapsulationContent.recordEntityBlock.recordEntity.contentDescription.alternativeTitle}">副题名</副题名>
+                        <说明题名文字 th:text="${pkg.signedObject.iEncapsulationContent.recordEntityBlock.recordEntity.contentDescription.otherTitleInformation}">说明题名文字</说明题名文字>
+                        <主题词 主题词表名称="" th:text="${pkg.signedObject.iEncapsulationContent.recordEntityBlock.recordEntity.contentDescription.descriptor}">主题词</主题词>
+                        <关键词 th:text="${pkg.signedObject.iEncapsulationContent.recordEntityBlock.recordEntity.contentDescription.keyword}">关键词</关键词>
+                        <人名 th:text="${pkg.signedObject.iEncapsulationContent.recordEntityBlock.recordEntity.contentDescription.personalName}">人名</人名>
+                        <摘要 th:text="${pkg.signedObject.iEncapsulationContent.recordEntityBlock.recordEntity.contentDescription.abstracts}">摘要</摘要>
+                        <分类号 th:text="${pkg.signedObject.iEncapsulationContent.recordEntityBlock.recordEntity.contentDescription.classCode}">分类号</分类号>
+                        <文件编号 th:text="${pkg.signedObject.iEncapsulationContent.recordEntityBlock.recordEntity.contentDescription.documentNumber}">文件编号</文件编号>
+                        <责任者 th:text="${pkg.signedObject.iEncapsulationContent.recordEntityBlock.recordEntity.contentDescription.author}">责任者</责任者>
+                        <日期 th:text="${pkg.signedObject.iEncapsulationContent.recordEntityBlock.recordEntity.contentDescription.date}">日期</日期>
+                        <文种 th:text="${pkg.signedObject.iEncapsulationContent.recordEntityBlock.recordEntity.contentDescription.documentType}">文种</文种>
+                        <紧急程度 th:text="${pkg.signedObject.iEncapsulationContent.recordEntityBlock.recordEntity.contentDescription.precedence}">紧急程度</紧急程度>
+                        <主送 th:text="${pkg.signedObject.iEncapsulationContent.recordEntityBlock.recordEntity.contentDescription.principalReceiver}">主送</主送>
+                        <抄送 th:text="${pkg.signedObject.iEncapsulationContent.recordEntityBlock.recordEntity.contentDescription.otherReceivers}">抄送</抄送>
+                        <密级 th:text="${pkg.signedObject.iEncapsulationContent.recordEntityBlock.recordEntity.contentDescription.securityClassification}">密级</密级>
+                        <保密期限 th:text="${pkg.signedObject.iEncapsulationContent.recordEntityBlock.recordEntity.contentDescription.secrecyPeriod}">保密期限</保密期限>
+                    </内容描述>
+                    <形式特征>
+                        <文件组合类型 th:text="${pkg.signedObject.iEncapsulationContent.recordEntityBlock.recordEntity.formalCharacteristics.documentAggregationType}">单件</文件组合类型>
+                        <页数 th:text="${pkg.signedObject.iEncapsulationContent.recordEntityBlock.recordEntity.formalCharacteristics.totalNumberOfPages}">1</页数>
+                        <语种 th:text="${pkg.signedObject.iEncapsulationContent.recordEntityBlock.recordEntity.formalCharacteristics.language}">汉语</语种>
+                        <稿本 th:text="${pkg.signedObject.iEncapsulationContent.recordEntityBlock.recordEntity.formalCharacteristics.manuscriptType}">稿本</稿本>
+                    </形式特征>
+                    <存储位置>
+                        <当前位置 th:text="${pkg.signedObject.iEncapsulationContent.recordEntityBlock.recordEntity.storageLocation.currentLocation}">当前位置</当前位置>
+                        <脱机载体编号 th:text="${pkg.signedObject.iEncapsulationContent.recordEntityBlock.recordEntity.storageLocation.offlineMediumIdentifier}">脱机载体编号</脱机载体编号>
+                        <脱机载体存址 th:text="${pkg.signedObject.iEncapsulationContent.recordEntityBlock.recordEntity.storageLocation.offlineMediumStorageLocation}">脱机载体存址</脱机载体存址>
+                        <缩微号 th:text="${pkg.signedObject.iEncapsulationContent.recordEntityBlock.recordEntity.storageLocation.microformIdentifier}">缩微号</缩微号>
+                    </存储位置>
+                    <权限管理>
+                        <知识产权说明 th:text="${pkg.signedObject.iEncapsulationContent.recordEntityBlock.recordEntity.rightsManagement.intellectualPropertyStatement}">知识产权说明</知识产权说明>
+                        <授权>
+                            <授权对象 th:text="${pkg.signedObject.iEncapsulationContent.recordEntityBlock.recordEntity.rightsManagement.authorization.authorizedAgent}">授权对象</授权对象>
+                            <授权行为 th:text="${pkg.signedObject.iEncapsulationContent.recordEntityBlock.recordEntity.rightsManagement.authorization.permissionAssignment}">授权行为</授权行为>
+                        </授权>
+                        <控制标识 th:text="${pkg.signedObject.iEncapsulationContent.recordEntityBlock.recordEntity.rightsManagement.controlIdentifier}">控制标识</控制标识>
+                    </权限管理>
+                    <信息系统描述 th:text="${pkg.signedObject.iEncapsulationContent.recordEntityBlock.recordEntity.recordEntity.informationSystemDescription}">信息系统描述</信息系统描述>
+                    <附注 th:text="${pkg.signedObject.iEncapsulationContent.recordEntityBlock.recordEntity.recordEntity.annotation}">附注</附注>
+                    <文件数据>
+                        <文档>
+                            <文档标识符 th:text="${pkg.signedObject.iEncapsulationContent.recordEntityBlock.recordEntity.recordData.document.documentIdentifier}">idvalue0</文档标识符>
+                            <文档序号 th:text="${pkg.signedObject.iEncapsulationContent.recordEntityBlock.recordEntity.recordData.document.documentId}">文档序号</文档序号>
+                            <文档主从声明 th:text="${pkg.signedObject.iEncapsulationContent.recordEntityBlock.recordEntity.recordData.document.statementOnMainDocumentOrAttached}">主文档</文档主从声明>
+                            <题名 th:text="${pkg.signedObject.iEncapsulationContent.recordEntityBlock.recordEntity.recordData.document.title}">题名</题名>
+                            <文档数据 th:attr="文档数据ID=${pkg.signedObject.iEncapsulationContent.recordEntityBlock.recordEntity.recordData.document.documentData.documentId}" >
+                                <编码 >
+                                    <电子属性>
+                                        <格式信息 th:text="${pkg.signedObject.iEncapsulationContent.recordEntityBlock.recordEntity.recordData.document.documentData.encoding.electronicAttributes.formatInformation}">格式信息</格式信息>
+                                        <计算机文件名 th:text="${pkg.signedObject.iEncapsulationContent.recordEntityBlock.recordEntity.recordData.document.documentData.encoding.electronicAttributes.computerFileName}">计算机文件名</计算机文件名>
+                                        <计算机文件大小 th:text="${pkg.signedObject.iEncapsulationContent.recordEntityBlock.recordEntity.recordData.document.documentData.encoding.electronicAttributes.computerFileSize}">计算机文件大小</计算机文件大小>
+                                        <文档创建程序 th:text="${pkg.signedObject.iEncapsulationContent.recordEntityBlock.recordEntity.recordData.document.documentData.encoding.electronicAttributes.documentCreatingApplication}">文档创建程序</文档创建程序>
+                                    </电子属性>
+                                    <数字化属性>
+                                        <数字化对象形态 th:text="${pkg.signedObject.iEncapsulationContent.recordEntityBlock.recordEntity.recordData.document.documetnData.encoding.digitizationAttributes.physicalRecordCharacteristics}">数字化对象形态</数字化对象形态>
+                                        <扫描分辨率 th:text="${pkg.signedObject.iEncapsulationContent.recordEntityBlock.recordEntity.recordData.document.documetnData.encoding.digitizationAttributes.scanningResolution}">扫描分辨率</扫描分辨率>
+                                        <扫描色彩模式 th:text="${pkg.signedObject.iEncapsulationContent.recordEntityBlock.recordEntity.recordData.document.documetnData.encoding.digitizationAttributes.scanningColorModel}">黑白二值</扫描色彩模式>
+                                        <图像压缩方案 th:text="${pkg.signedObject.iEncapsulationContent.recordEntityBlock.recordEntity.recordData.document.documetnData.encoding.digitizationAttributes.imageCompressionScheme}">图像压缩方案</图像压缩方案>
+                                    </数字化属性>
+                                    <编码描述 th:text="${pkg.signedObject.iEncapsulationContent.recordEntityBlock.recordEntity.recordData.document.documetnData.encoding.}">本封装包中“编码数据”元素存储的是计算机文件二进制流的Base64编码，有关Base64编码规则参见IETF RFC 2045多用途邮件扩展（MIME）第一部分：互联网信息体格式。当提取和显现封装在编码数据元素中的计算机文件时，应对Base64编码进行反编码，并依据封装包中“反编码关键字”元素中记录的值还原计算机文件的扩展名</编码描述>
+                                    <反编码关键字 th:text="${pkg.signedObject.iEncapsulationContent.recordEntityBlock.recordEntity.recordData.document.documetnData.encoding.renderingKeyword}">反编码关键字</反编码关键字>
+                                    <编码数据 引用编码数据ID="idvalue0" 编码数据ID="idvalue3" th:text="${pkg.signedObject.iEncapsulationContent.recordEntityBlock.recordEntity.recordData.document.documetnData.encoding.encodingData}">MA==</编码数据>
+                                </编码>
+                            </文档数据>
+                        </文档>
+                    </文件数据>
+                </文件实体>
+                <文件实体关系>
+                    <文件标识符 th:text="${pkg.signedObject.iEncapsulationContent.recordEntityBlock.recordEntitiesRelation.recordIdentifier}">文件标识符</文件标识符>
+                    <被关联文件标识符 th:text="${pkg.signedObject.iEncapsulationContent.recordEntityBlock.recordEntitiesRelation.relatedRecordIdentifier}">被关联文件标识符</被关联文件标识符>
+                    <关系类型 th:text="${pkg.signedObject.iEncapsulationContent.recordEntityBlock.recordEntitiesRelation.relationType}">关系类型</关系类型>
+                    <关系 th:text="${pkg.signedObject.iEncapsulationContent.recordEntityBlock.recordEntitiesRelation.relation}">关系</关系>
+                    <关系描述 th:text="${pkg.signedObject.iEncapsulationContent.recordEntityBlock.recordEntitiesRelation.relationDescription}">关系描述</关系描述>
+                </文件实体关系>
+            </文件实体块>
+            <业务实体块>
+                <业务实体>
+                    <业务标识符 th:text="${pkg.signedObject.iEncapsulationContent.businessEntityBlock.businessEntity.businessEntityIdentifier}">业务标识符</业务标识符>
+                    <机构人员标识符 th:text="${pkg.signedObject.iEncapsulationContent.businessEntityBlock.businessEntity.agentEntityIdentifier}">机构人员标识符</机构人员标识符>
+                    <文件标识符 th:text="${pkg.signedObject.iEncapsulationContent.businessEntityBlock.businessEntity.recordIdentifier}">文件标识符</文件标识符>
+                    <业务状态 th:text="${pkg.signedObject.iEncapsulationContent.businessEntityBlock.businessEntity.businessStatus}">历史行为</业务状态>
+                    <业务行为 th:text="${pkg.signedObject.iEncapsulationContent.businessEntityBlock.businessEntity.businessActivity}">业务行为</业务行为>
+                    <行为时间 th:text="${pkg.signedObject.iEncapsulationContent.businessEntityBlock.businessEntity.actionTime}">行为时间</行为时间>
+                    <行为依据 th:text="${pkg.signedObject.iEncapsulationContent.businessEntityBlock.businessEntity.actionMandate}">行为依据</行为依据>
+                    <行为描述 th:text="${pkg.signedObject.iEncapsulationContent.businessEntityBlock.businessEntity.actionDescription}">行为描述</行为描述>
+                </业务实体>
+            </业务实体块>
+            <机构人员实体块>
+                <机构人员实体>
+                    <机构人员标识符 th:text="${pkg.signedObject.iEncapsulationContent.agentEntityBlock.agentEntity.agentEntityId}">机构人员标识符</机构人员标识符>
+                    <机构人员类型 th:text="${pkg.signedObject.iEncapsulationContent.agentEntityBlock.agentEntity.agentType}">单位</机构人员类型>
+                    <机构人员名称 th:text="${pkg.signedObject.iEncapsulationContent.agentEntityBlock.agentEntity.agentName}">机构人员名称</机构人员名称>
+                    <组织机构代码 th:text="${pkg.signedObject.iEncapsulationContent.agentEntityBlock.agentEntity.organizationCode}">组织机构代码</组织机构代码>
+                    <个人职位 th:text="${pkg.signedObject.iEncapsulationContent.agentEntityBlock.agentEntity.positionName}">个人职位</个人职位>
+                </机构人员实体>
+                <机构人员实体关系>
+                    <机构人员标识符 th:text="${pkg.signedObject.iEncapsulationContent.agentEntityBlock.agentEntityRelation.agentEntityId}">机构人员标识符</机构人员标识符>
+                    <被关联机构人员标识符 th:text="${pkg.signedObject.iEncapsulationContent.agentEntityBlock.agentEntityRelation.relatedAgentIdentifier}">被关联机构人员标识符</被关联机构人员标识符>
+                    <关系类型 th:text="${pkg.signedObject.iEncapsulationContent.agentEntityBlock.agentEntityRelation.relationType}">关系类型</关系类型>
+                    <关系 th:text="${pkg.signedObject.iEncapsulationContent.agentEntityBlock.agentEntityRelation.relation}">关系</关系>
+                    <关系描述 th:text="${pkg.signedObject.iEncapsulationContent.agentEntityBlock.agentEntityRelation.relationDescription}">关系描述</关系描述>
+                </机构人员实体关系>
+            </机构人员实体块>
+        </封装内容>
+    </被签名对象>
+    <电子签名块>
+        <电子签名>
+            <签名标识符 th:text="${pkg.electronicSignatureBlock.electronicSignature.signatureIdentifier}">idvalue4</签名标识符>
+            <签名规则 th:text="${pkg.electronicSignatureBlock.electronicSignature.signatureRules}">签名规则</签名规则>
+            <签名时间 th:text="${pkg.electronicSignatureBlock.electronicSignature.signatureTime}">2001-12-31T12:00:00</签名时间>
+            <签名人 th:text="${pkg.electronicSignatureBlock.electronicSignature.signer}">签名人</签名人>
+            <签名结果 th:text="${pkg.electronicSignatureBlock.electronicSignature.signature}">MA==</签名结果>
+            <证书块>
+                <证书 th:text="${pkg.electronicSignatureBlock.electronicSignature.certificateBlock.certificate}">MA==</证书>
+                <证书引证 th:text="${pkg.electronicSignatureBlock.electronicSignature.certificateBlock.certificateReference}">htt//tempuri.org</证书引证>
+            </证书块>
+            <签名算法标识 th:text="${pkg.electronicSignatureBlock.electronicSignature.signatureAlgorithmIdentifier}">签名算法标识</签名算法标识>
+        </电子签名>
+    </电子签名块>
+    <锁定签名>
+        <被锁定签名标识符 th:text="${pkg.lockSignature.lockedSignatureIdentifier}"></被锁定签名标识符>
+        <签名规则 th:text="${pkg.lockSignature.signatureRules}"></签名规则>
+        <签名时间 th:text="${pkg.lockSignature.signatureTime}">2001-12-31T12:00:00</签名时间>
+        <签名人 th:text="${pkg.lockSignature.signer}">签名人</签名人>
+        <签名结果 th:text="${pkg.lockSignature.signature}">MA==</签名结果>
+        <证书块>
+            <证书 th:text="${pkg.lockSignature.certificateBlock.certificate}">MA==</证书>
+            <证书引证 th:text="${pkg.lockSignature.certificateBlock.certificateReference}">htt//tempuri.org</证书引证>
+        </证书块>
+        <签名算法标识 th:text="${pkg.lockSignature.signatureAlgorithmIdentifier}">签名算法标识</签名算法标识>
+    </锁定签名>
+</电子文件封装包>
