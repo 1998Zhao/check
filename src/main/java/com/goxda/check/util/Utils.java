@@ -6,6 +6,7 @@ import cn.hutool.core.util.HashUtil;
 import cn.hutool.core.util.StrUtil;
 import cn.hutool.crypto.SecureUtil;
 import com.alibaba.druid.util.Base64;
+import com.goxda.check.metadate.IMetadata;
 import lombok.extern.slf4j.Slf4j;
 
 
@@ -15,6 +16,7 @@ import java.security.*;
 import java.security.spec.InvalidKeySpecException;
 import java.security.spec.PKCS8EncodedKeySpec;
 import java.security.spec.X509EncodedKeySpec;
+import java.util.List;
 
 @Slf4j
 public class Utils {

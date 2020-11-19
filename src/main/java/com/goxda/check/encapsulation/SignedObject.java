@@ -3,6 +3,7 @@ package com.goxda.check.encapsulation;
 import lombok.Data;
 
 import java.util.Date;
+import java.util.List;
 
 /**
  * @author zgq
@@ -17,5 +18,5 @@ public class SignedObject {
      * 创建 或 修改 EEP包的团体或个人
      */
     private String packageCreator;
-    private IEncapsulationContent iEncapsulationContent;
+    private List<IEncapsulationContent> iEncapsulationContents;
 }

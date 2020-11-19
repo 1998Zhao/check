@@ -10,6 +10,6 @@ import java.util.List;
  */
 @Data
 public class RecordEntityBlock {
-    List<RecordEntity> recordEntities;
+    RecordEntity recordEntities;
     RecordEntitiesRelation recordEntitiesRelation;
 }

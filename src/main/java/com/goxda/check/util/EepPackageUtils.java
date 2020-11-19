@@ -3,6 +3,7 @@ package com.goxda.check.util;
 import cn.hutool.core.io.FileUtil;
 import com.alibaba.druid.util.Base64;
 import com.goxda.check.encapsulation.*;
+import com.goxda.check.metadate.IMetadata;
 
 import java.io.File;
 import java.io.IOException;
@@ -24,16 +25,15 @@ import java.util.stream.Collectors;
 public class EepPackageUtils {
     /**
      * 此处打包 可将归档的n个条目下的n个电子文件打包
-     * @param folder
-     * @param priK
-     * @param type
+     * @param folders 对应的条目id数组
+     * @param type 类型
      * @throws IOException
      * @throws InvalidKeySpecException
      * @throws NoSuchAlgorithmException
      * @throws InvalidKeyException
      * @throws SignatureException
      */
-    public static void packageIt(String folder,String priK,String type) throws IOException, InvalidKeySpecException, NoSuchAlgorithmException, InvalidKeyException, SignatureException {
+    public static void packageIt(String [] folders, List<IMetadata> metadata,String type) throws IOException, InvalidKeySpecException, NoSuchAlgorithmException, InvalidKeyException, SignatureException {
         ElectronicDocumentsEncapsulationPackage pkg = new ElectronicDocumentsEncapsulationPackage();
         pkg.setVersion("2009");
         pkg.setFormatDescription("本EEP根据中华人民共和国档案行业标准DA/T 48-2009《基于XML的电子文件封装规范》生成");
@@ -55,14 +55,15 @@ public class EepPackageUtils {
             ae.setAgentName("");
             aeb.setAgentEntity(ae);
             content.setAgentEntityBlock(aeb);
-            so.setIEncapsulationContent(content);
+
         }
         else {
             so.setType(PackageEnum.MODIFIED);
             mc = new ModifiedEncapsulationContent();
-            so.setIEncapsulationContent(mc);
+
         }
-        List<String> folders = getAllFolder(folder);
+        //此处模拟 文件夹获取
+        //List<String> folders = getAllFolder("folder");
         List<String> files = new ArrayList<>();
         for (String s : folders) {
             files.addAll(getAllFiles(s));
