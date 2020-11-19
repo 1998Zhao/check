@@ -8,11 +8,14 @@ import com.goxda.check.api.service.*;
 import com.goxda.check.api.service.impl.XmlTemplatesService;
 import com.goxda.check.api.service.impl.XmlTransferMap;
 
+import com.goxda.check.check.security.ISecurityCheck;
+import com.goxda.check.check.security.impl.SecurityCheck;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
 
 import java.util.List;
+import java.util.Map;
 
 @SpringBootTest
 class CheckApplicationTests {
@@ -28,6 +31,8 @@ class CheckApplicationTests {
     private IMetadataRulePkgService iService;
     @Autowired
     XmlTransferMap map;
+    @Autowired
+    ISecurityCheck iSecurityCheck;
     @Test
     void contextLoads() {
         QueryWrapper<MetadataRuleImage> wrapper = new QueryWrapper<>();
@@ -66,7 +71,7 @@ class CheckApplicationTests {
     }
     @Test
     public void test(){
-        map.getPackageByXml("");
-
+        Map<String, String> res = iSecurityCheck.virusOfArchivePackageDetection("D:\\55.docx");
+        System.out.println(res);
     }
 }

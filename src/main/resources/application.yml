@@ -15,3 +15,6 @@ mybatis-plus:
   type-aliases-package: com.goxda.check.step
 server:
   port: 8001
+godox:
+  360sd: G:\360\360sd\360sd.exe
+  360log: G:\360\360sd\Log\VirusScanLog

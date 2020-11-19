@@ -3,6 +3,8 @@ package com.goxda.check.encapsulation;
 import lombok.Data;
 import lombok.experimental.Accessors;
 
+import java.util.List;
+
 /**
  * 电子文件封装包
  * @author zgq
@@ -25,8 +27,8 @@ public class ElectronicDocumentsEncapsulationPackage {
     /**
      * 电子签名块
      */
-    private ElectronicSignatureBlock electronicSignatureBlock;
-    private LockSignature lockSignature;
+    private List<ElectronicSignatureBlock> electronicSignatureBlock;
+    private List<LockSignature> lockSignature;
     public void create(){
 
     }

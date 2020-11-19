@@ -52,7 +52,7 @@ public interface IAuthenticity {
      */
     default IMetadata[] getAllIMetadata(Metadata metadata){
         try{
-            Class c = metadata.getClass();
+            Class<?extends Metadata> c = metadata.getClass();
             Field[] fields = c.getDeclaredFields();
             IMetadata [] array= new IMetadata[fields.length];
             for (int i=0;i<fields.length;i++) {

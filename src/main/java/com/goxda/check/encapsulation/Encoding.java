@@ -2,6 +2,9 @@ package com.goxda.check.encapsulation;
 
 import lombok.Data;
 
+import java.util.Arrays;
+import java.util.List;
+
 /**
  * M46 电子属性
  * M52 数字化属性
@@ -18,5 +21,17 @@ public class Encoding {
     /**
      * 编码数据 = 编码数据id 引用编码数据id
      */
-    private String encodingData;
+    private List<String> encodingData;
+    public static int b(int [] a){
+        for (int i = 0; i < a.length; i++) {
+            if (a[i]!=i+1){
+                return a[i]-1;
+            }
+        }
+        return a[0];
+    }
+
+    public static void main(String[] args) {
+        System.out.println(String.format("%04d",87));
+    }
 }

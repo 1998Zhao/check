@@ -1,8 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<电子文件封装包>
+<电子文件封装包 xmlns="http://www.saac.gov.cn/standards/ERM/encapsulation"
+         xmlns:xsi=" http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://www.saac.gov.cn/standards/ERM/encapsulation eep.xsd">
     <封装包格式描述 th:text="${pkg.formatDescription}"></封装包格式描述>
     <版本 th:text="${pkg.version}"></版本>
-    <被签名对象 eep版本="2009">
+    <被签名对象>
         <封装包类型 th:text="${pkg.signedObject.type}">原始型</封装包类型>
         <封装包类型描述 th:text="${pkg.signedObject.packageTypeDescription}"> 本封装包包含电子文件数据及其元数据，原始封装，未经修改</封装包类型描述>
         <封装包创建时间 th:text="${pkg.signedObject.packageCreationTime}"></封装包创建时间>
@@ -80,7 +82,7 @@
                             <文档主从声明 th:text="${pkg.signedObject.iEncapsulationContent.recordEntityBlock.recordEntity.recordData.document.statementOnMainDocumentOrAttached}">主文档</文档主从声明>
                             <题名 th:text="${pkg.signedObject.iEncapsulationContent.recordEntityBlock.recordEntity.recordData.document.title}">题名</题名>
                             <文档数据 th:attr="文档数据ID=${pkg.signedObject.iEncapsulationContent.recordEntityBlock.recordEntity.recordData.document.documentData.documentId}" >
-                                <编码 >
+                                <编码>
                                     <电子属性>
                                         <格式信息 th:text="${pkg.signedObject.iEncapsulationContent.recordEntityBlock.recordEntity.recordData.document.documentData.encoding.electronicAttributes.formatInformation}">格式信息</格式信息>
                                         <计算机文件名 th:text="${pkg.signedObject.iEncapsulationContent.recordEntityBlock.recordEntity.recordData.document.documentData.encoding.electronicAttributes.computerFileName}">计算机文件名</计算机文件名>
@@ -140,29 +142,29 @@
         </封装内容>
     </被签名对象>
     <电子签名块>
-        <电子签名>
-            <签名标识符 th:text="${pkg.electronicSignatureBlock.electronicSignature.signatureIdentifier}">idvalue4</签名标识符>
-            <签名规则 th:text="${pkg.electronicSignatureBlock.electronicSignature.signatureRules}">签名规则</签名规则>
-            <签名时间 th:text="${pkg.electronicSignatureBlock.electronicSignature.signatureTime}">2001-12-31T12:00:00</签名时间>
-            <签名人 th:text="${pkg.electronicSignatureBlock.electronicSignature.signer}">签名人</签名人>
-            <签名结果 th:text="${pkg.electronicSignatureBlock.electronicSignature.signature}">MA==</签名结果>
+        <电子签名 th:each="s:${pkg.electronicSignatureBlock.electronicSignature}">
+            <签名标识符 th:text="${s.signatureIdentifier}">idvalue4</签名标识符>
+            <签名规则 th:text="${s.signatureRules}">签名规则</签名规则>
+            <签名时间 th:text="${s.signatureTime}">2001-12-31T12:00:00</签名时间>
+            <签名人 th:text="${s.signer}">签名人</签名人>
+            <签名结果 th:text="${s.signature}">MA==</签名结果>
             <证书块>
-                <证书 th:text="${pkg.electronicSignatureBlock.electronicSignature.certificateBlock.certificate}">MA==</证书>
-                <证书引证 th:text="${pkg.electronicSignatureBlock.electronicSignature.certificateBlock.certificateReference}">htt//tempuri.org</证书引证>
+                <证书 th:text="${s.certificate}">MA==</证书>
+                <证书引证 th:text="${s.certificateReference}">htt//tempuri.org</证书引证>
             </证书块>
-            <签名算法标识 th:text="${pkg.electronicSignatureBlock.electronicSignature.signatureAlgorithmIdentifier}">签名算法标识</签名算法标识>
+            <签名算法标识 th:text="${s.signatureAlgorithmIdentifier}">签名算法标识</签名算法标识>
         </电子签名>
     </电子签名块>
-    <锁定签名>
-        <被锁定签名标识符 th:text="${pkg.lockSignature.lockedSignatureIdentifier}"></被锁定签名标识符>
-        <签名规则 th:text="${pkg.lockSignature.signatureRules}"></签名规则>
-        <签名时间 th:text="${pkg.lockSignature.signatureTime}">2001-12-31T12:00:00</签名时间>
-        <签名人 th:text="${pkg.lockSignature.signer}">签名人</签名人>
-        <签名结果 th:text="${pkg.lockSignature.signature}">MA==</签名结果>
+    <锁定签名 th:each="sign:${pkg.lockSignature}">
+        <被锁定签名标识符 th:text="${sign.lockedSignatureIdentifier}"></被锁定签名标识符>
+        <签名规则 th:text="${sign.signatureRules}"></签名规则>
+        <签名时间 th:text="${sign.signatureTime}">2001-12-31T12:00:00</签名时间>
+        <签名人 th:text="${sign.signer}">签名人</签名人>
+        <签名结果 th:text="${sign.signature}">MA==</签名结果>
         <证书块>
-            <证书 th:text="${pkg.lockSignature.certificateBlock.certificate}">MA==</证书>
-            <证书引证 th:text="${pkg.lockSignature.certificateBlock.certificateReference}">htt//tempuri.org</证书引证>
+            <证书 th:text="${sign.certificateBlock.certificate}">MA==</证书>
+            <证书引证 th:text="${sign.certificateBlock.certificateReference}">htt//tempuri.org</证书引证>
         </证书块>
-        <签名算法标识 th:text="${pkg.lockSignature.signatureAlgorithmIdentifier}">签名算法标识</签名算法标识>
+        <签名算法标识 th:text="${sign.signatureAlgorithmIdentifier}">签名算法标识</签名算法标识>
     </锁定签名>
 </电子文件封装包>
