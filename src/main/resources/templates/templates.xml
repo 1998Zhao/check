@@ -30,7 +30,7 @@
                         <室编案卷号 th:text="${pkg.signedObject.iEncapsulationContent.recordEntityBlock.recordEntity.archivalCode.agencyFileNumber}"></室编案卷号>
                         <馆编案卷号 th:text="${pkg.signedObject.iEncapsulationContent.recordEntityBlock.recordEntity.archivalCode.archivesFileNumber}"></馆编案卷号>
                         <馆编件号 th:text="${pkg.signedObject.iEncapsulationContent.recordEntityBlock.recordEntity.archivalCode.archivesItemNumber}"></馆编件号>
-                        <!--                        <室编件号>1</室编件号>-->
+                        <!--<室编件号>1</室编件号>-->
                         <页号 th:text="${pkg.signedObject.iEncapsulationContent.recordEntityBlock.recordEntity.archivalCode.pageNumber}">页号</页号>
                     </档号>
                     <内容描述>
@@ -38,7 +38,7 @@
                         <并列题名 th:text="${pkg.signedObject.iEncapsulationContent.recordEntityBlock.recordEntity.contentDescription.parallelTitle}">并列题名</并列题名>
                         <副题名 th:text="${pkg.signedObject.iEncapsulationContent.recordEntityBlock.recordEntity.contentDescription.alternativeTitle}">副题名</副题名>
                         <说明题名文字 th:text="${pkg.signedObject.iEncapsulationContent.recordEntityBlock.recordEntity.contentDescription.otherTitleInformation}">说明题名文字</说明题名文字>
-                        <主题词 主题词表名称="" th:text="${pkg.signedObject.iEncapsulationContent.recordEntityBlock.recordEntity.contentDescription.descriptor}">主题词</主题词>
+                        <主题词 th:text="${pkg.signedObject.iEncapsulationContent.recordEntityBlock.recordEntity.contentDescription.descriptor}">主题词</主题词>
                         <关键词 th:text="${pkg.signedObject.iEncapsulationContent.recordEntityBlock.recordEntity.contentDescription.keyword}">关键词</关键词>
                         <人名 th:text="${pkg.signedObject.iEncapsulationContent.recordEntityBlock.recordEntity.contentDescription.personalName}">人名</人名>
                         <摘要 th:text="${pkg.signedObject.iEncapsulationContent.recordEntityBlock.recordEntity.contentDescription.abstracts}">摘要</摘要>

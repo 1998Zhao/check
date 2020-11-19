@@ -2,7 +2,6 @@ package com.goxda.check.encapsulation;
 
 import lombok.Data;
 
-import java.util.Arrays;
 import java.util.List;
 
 /**
@@ -11,6 +10,7 @@ import java.util.List;
  * M219 编码描述
  *─M220 反编码关键字
  *─M221 编码数据
+ *-@author zgq
  */
 @Data
 public class Encoding {
@@ -22,16 +22,5 @@ public class Encoding {
      * 编码数据 = 编码数据id 引用编码数据id
      */
     private List<String> encodingData;
-    public static int b(int [] a){
-        for (int i = 0; i < a.length; i++) {
-            if (a[i]!=i+1){
-                return a[i]-1;
-            }
-        }
-        return a[0];
-    }
 
-    public static void main(String[] args) {
-        System.out.println(String.format("%04d",87));
-    }
 }

@@ -24,8 +24,8 @@ public class AccessionMetadata extends Metadata implements Serializable, IMetada
 
     private static final long serialVersionUID = 1L;
 
-    @TableId(value = "id", type = IdType.AUTO)
-    private Integer id;
+    @TableId(value = "id", type = IdType.ASSIGN_ID)
+    private Long id;
 
     /**
      * 签收
@@ -119,17 +119,17 @@ public class AccessionMetadata extends Metadata implements Serializable, IMetada
                 ", totalNumberOfPages=" + totalNumberOfPages +
                 ", language='" + language + '\'' +
                 ", manuscriptType='" + manuscriptType + '\'' +
-                ", electronicAttributes='" + electronicAttributes + '\'' +
-                ", formatInformation='" + formatInformation + '\'' +
-                ", computerFileName='" + computerFileName + '\'' +
-                ", computerFileSize='" + computerFileSize + '\'' +
-                ", documentCreatingApplication='" + documentCreatingApplication + '\'' +
-                ", informationSystemDescription='" + informationSystemDescription + '\'' +
-                ", digitizationAttributes='" + digitizationAttributes + '\'' +
-                ", physicalRecordCharacteristics='" + physicalRecordCharacteristics + '\'' +
-                ", scanningResolution='" + scanningResolution + '\'' +
-                ", scanningColorModel='" + scanningColorModel + '\'' +
-                ", imageCompressionScheme='" + imageCompressionScheme + '\'' +
+//                ", electronicAttributes='" + electronicAttributes + '\'' +
+//                ", formatInformation='" + formatInformation + '\'' +
+//                ", computerFileName='" + computerFileName + '\'' +
+//                ", computerFileSize='" + computerFileSize + '\'' +
+//                ", documentCreatingApplication='" + documentCreatingApplication + '\'' +
+//                ", informationSystemDescription='" + informationSystemDescription + '\'' +
+//                ", digitizationAttributes='" + digitizationAttributes + '\'' +
+//                ", physicalRecordCharacteristics='" + physicalRecordCharacteristics + '\'' +
+//                ", scanningResolution='" + scanningResolution + '\'' +
+//                ", scanningColorModel='" + scanningColorModel + '\'' +
+//                ", imageCompressionScheme='" + imageCompressionScheme + '\'' +
                 ", electronicSignature='" + electronicSignature + '\'' +
                 ", signatureRules='" + signatureRules + '\'' +
                 ", signatureTime=" + signatureTime +

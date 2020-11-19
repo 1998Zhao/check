@@ -1,9 +1,11 @@
 package com.goxda.check.api.entity;
 
 import com.baomidou.mybatisplus.annotation.IdType;
+import com.baomidou.mybatisplus.annotation.TableField;
 import com.baomidou.mybatisplus.annotation.TableId;
 import java.time.LocalDateTime;
 import java.io.Serializable;
+import java.util.List;
 
 import com.goxda.check.api.entity.inte.IMetadata;
 import lombok.Data;
@@ -25,8 +27,8 @@ public class Metadata implements Serializable, IMetadata {
 
     private static final long serialVersionUID = 1L;
 
-    @TableId(value = "id", type = IdType.AUTO)
-    private Integer id;
+    @TableId(value = "id", type = IdType.ASSIGN_ID)
+    private Long id;
 
     protected String entryid;
 
@@ -173,6 +175,7 @@ public class Metadata implements Serializable, IMetadata {
     /**
      * 摘要
      */
+    @TableField(value = "abstract")
     protected String abstractMsg;
 
     /**
@@ -255,61 +258,61 @@ public class Metadata implements Serializable, IMetadata {
      */
     protected String manuscriptType;
 
-    /**
-     * 电子属性
-     */
-    protected String electronicAttributes;
-
-    /**
-     * 格式信息
-     */
-    protected String formatInformation;
-
-    /**
-     * 计算机文件名
-     */
-    protected String computerFileName;
-
-    /**
-     * 计算机文件大小
-     */
-    protected String computerFileSize;
-
-    /**
-     * 文档创建程序
-     */
-    protected String documentCreatingApplication;
-
-    /**
-     * 信息系统描述
-     */
-    protected String informationSystemDescription;
-
-    /**
-     * 数字化属性
-     */
-    protected String digitizationAttributes;
-
-    /**
-     * 数字化对象形态
-     */
-    protected String physicalRecordCharacteristics;
-
-    /**
-     * 扫描分辨率
-     */
-    protected String scanningResolution;
-
-    /**
-     * 扫描色彩模式
-     */
-    protected String scanningColorModel;
-
-    /**
-     * 图像压缩方案
-     */
-    protected String imageCompressionScheme;
-
+//    /**
+//     * 电子属性
+//     */
+//    protected String electronicAttributes;
+//
+//    /**
+//     * 格式信息
+//     */
+//    protected String formatInformation;
+//
+//    /**
+//     * 计算机文件名
+//     */
+//    protected String computerFileName;
+//
+//    /**
+//     * 计算机文件大小
+//     */
+//    protected String computerFileSize;
+//
+//    /**
+//     * 文档创建程序
+//     */
+//    protected String documentCreatingApplication;
+//
+//    /**
+//     * 信息系统描述
+//     */
+//    protected String informationSystemDescription;
+//
+//    /**
+//     * 数字化属性
+//     */
+//    protected String digitizationAttributes;
+//
+//    /**
+//     * 数字化对象形态
+//     */
+//    protected String physicalRecordCharacteristics;
+//
+//    /**
+//     * 扫描分辨率
+//     */
+//    protected String scanningResolution;
+//
+//    /**
+//     * 扫描色彩模式
+//     */
+//    protected String scanningColorModel;
+//
+//    /**
+//     * 图像压缩方案
+//     */
+//    protected String imageCompressionScheme;
+    transient List<Encodings> encodings;
     /**
      * 电子签名
      */
@@ -470,7 +473,4 @@ public class Metadata implements Serializable, IMetadata {
      */
     protected String relationDescription;
 
-    public String getAbstract() {
-        return abstractMsg;
-    }
 }

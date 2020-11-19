@@ -1,7 +1,10 @@
 package com.goxda.check;
 
+import cn.hutool.core.codec.Base64;
 import com.baomidou.mybatisplus.core.conditions.query.QueryWrapper;
 
+import com.goxda.check.api.entity.AccessionMetadata;
+import com.goxda.check.api.entity.Encodings;
 import com.goxda.check.api.entity.MetadataRuleImage;
 
 import com.goxda.check.api.service.*;
@@ -9,13 +12,14 @@ import com.goxda.check.api.service.impl.XmlTemplatesService;
 import com.goxda.check.api.service.impl.XmlTransferMap;
 
 import com.goxda.check.check.security.ISecurityCheck;
-import com.goxda.check.check.security.impl.SecurityCheck;
+
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
 
+import java.io.FileInputStream;
+import java.io.FileNotFoundException;
 import java.util.List;
-import java.util.Map;
 
 @SpringBootTest
 class CheckApplicationTests {
@@ -24,11 +28,9 @@ class CheckApplicationTests {
     @Autowired
     private IMetadataRuleImageService iMetadataRuleService;
     @Autowired
-    private IAccessionMetadataService s;
+    private IEncodingsService service;
     @Autowired
-    private ITransmissionMetadataService service;
-    @Autowired
-    private IMetadataRulePkgService iService;
+    private IAccessionMetadataService service1;
     @Autowired
     XmlTransferMap map;
     @Autowired
@@ -70,8 +72,7 @@ class CheckApplicationTests {
         return name;
     }
     @Test
-    public void test(){
-        Map<String, String> res = iSecurityCheck.virusOfArchivePackageDetection("D:\\55.docx");
-        System.out.println(res);
+    public void test() {
+        service1.save(new AccessionMetadata());
     }
 }
