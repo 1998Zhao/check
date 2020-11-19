@@ -33,7 +33,7 @@ public class EepPackageUtils {
      * @throws InvalidKeyException
      * @throws SignatureException
      */
-    public static void packageIt(String [] folders, List<IMetadata> metadata,String type) throws IOException, InvalidKeySpecException, NoSuchAlgorithmException, InvalidKeyException, SignatureException {
+    public static void packageIt(String [] folders, List<IMetadata> metadata,String type) throws IOException, InvalidKeySpecException, NoSuchAlgorithmException, InvalidKeyException, SignatureException, IllegalAccessException, InstantiationException {
         ElectronicDocumentsEncapsulationPackage pkg = new ElectronicDocumentsEncapsulationPackage();
         pkg.setVersion("2009");
         pkg.setFormatDescription("本EEP根据中华人民共和国档案行业标准DA/T 48-2009《基于XML的电子文件封装规范》生成");
@@ -48,6 +48,11 @@ public class EepPackageUtils {
         EncapsulationContent content;
         ModifiedEncapsulationContent mc;
         if ("原始型".equals(type)){
+            for (int i = 0; i < metadata.size(); i++) {
+                IMetadata m = metadata.get(i);
+                
+
+            }
             so.setType(PackageEnum.PRIMITIVE);
             content = new EncapsulationContent();
             AgentEntityBlock aeb = new AgentEntityBlock();
