@@ -21,6 +21,6 @@ public class Encoding {
     /**
      * 编码数据 = 编码数据id 引用编码数据id
      */
-    private List<String> encodingData;
+    private String encodingData;
 
 }

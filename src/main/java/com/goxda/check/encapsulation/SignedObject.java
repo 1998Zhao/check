@@ -12,7 +12,7 @@ import java.util.Date;
 public class SignedObject {
     private PackageEnum type;
     private String packageTypeDescription;
-    private Date packageCreationTime;
+    private String packageCreationTime;
     /**
      * 创建 或 修改 EEP包的团体或个人
      */

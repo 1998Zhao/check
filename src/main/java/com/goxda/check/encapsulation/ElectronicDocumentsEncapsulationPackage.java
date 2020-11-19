@@ -27,13 +27,8 @@ public class ElectronicDocumentsEncapsulationPackage {
     /**
      * 电子签名块
      */
-    private List<ElectronicSignatureBlock> electronicSignatureBlock;
-    private List<LockSignature> lockSignature;
-    public void create(){
+    private ElectronicSignatureBlock electronicSignatureBlock;
+    private LockSignature lockSignature;
 
-    }
-    public void parse(){
-
-    }
 
 }

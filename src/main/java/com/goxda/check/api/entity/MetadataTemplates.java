@@ -10,9 +10,7 @@ import lombok.experimental.Accessors;
 
 /**
  * <p>
- * 
  * </p>
- *
  * @author ah
  * @since 2020-11-16
  */
@@ -55,7 +53,7 @@ public class MetadataTemplates implements Serializable {
     /**
      * 重复性
      */
-    private String metedataRepeat;
+    private String metadataRepeat;
 
     /**
      * 元素类型
