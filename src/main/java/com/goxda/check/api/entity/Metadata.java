@@ -409,68 +409,72 @@ public class Metadata implements Serializable, IMetadata {
     protected String annotation;
 
     /**
-     * 机构人员类型
+     * 机构人员
      */
-    protected String agentType;
 
-    /**
-     * 机构人员名称
-     */
-    protected String agentName;
-
-    /**
-     * 组织机构代码
-     */
-    protected String organizationCode;
-
-    /**
-     * 个人职位
-     */
-    protected String positionName;
-
-    /**
-     * 业务状态
-     */
-    protected String businessStatus;
-
-    /**
-     * 业务行为
-     */
-    protected String businessActivity;
-
-    /**
-     * 行为时间
-     */
-    protected String actionTime;
-
-    /**
-     * 行为依据
-     */
-    protected String actionMandate;
-
-    /**
-     * 行为描述
-     */
-    protected String actionDescription;
-
-    /**
-     * 实体标识符
-     */
-    protected String entityIdentifier;
-
-    /**
-     * 关系类型
-     */
-    protected String relationType;
-
-    /**
-     * 关系
-     */
-    protected String relation;
-
-    /**
-     * 关系描述
-     */
-    protected String relationDescription;
+//    /**
+//     * 机构人员类型
+//     */
+//    protected String agentType;
+//
+//    /**
+//     * 机构人员名称
+//     */
+//    protected String agentName;
+//
+//    /**
+//     * 组织机构代码
+//     */
+//    protected String organizationCode;
+//
+//    /**
+//     * 个人职位
+//     */
+//    protected String positionName;
+//
+//    /**
+//     * 业务状态
+//     */
+//    protected String businessStatus;
+//
+//    /**
+//     * 业务行为
+//     */
+//    protected String businessActivity;
+//
+//    /**
+//     * 行为时间
+//     */
+//    protected String actionTime;
+//
+//    /**
+//     * 行为依据
+//     */
+//    protected String actionMandate;
+//
+//    /**
+//     * 行为描述
+//     */
+//    protected String actionDescription;
+//
+//    /**
+//     * 实体标识符
+//     */
+//    protected String entityIdentifier;
+//
+//    /**
+//     * 关系类型
+//     */
+//    protected String relationType;
+//
+//    /**
+//     * 关系
+//     */
+//    protected String relation;
+//
+//    /**
+//     * 关系描述
+//     */
+//    protected String relationDescription;
 
 }

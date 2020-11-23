@@ -18,3 +18,4 @@ server:
 godox:
   360sd: G:\360\360sd\360sd.exe
   360log: G:\360\360sd\Log\VirusScanLog
+  360repair: G:\360\360Safe\360leakfixer.exe

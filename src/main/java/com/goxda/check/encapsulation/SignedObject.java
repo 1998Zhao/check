@@ -18,5 +18,5 @@ public class SignedObject {
      * 创建 或 修改 EEP包的团体或个人
      */
     private String packageCreator;
-    private List<IEncapsulationContent> iEncapsulationContents;
+    private IEncapsulationContent iEncapsulationContents;
 }

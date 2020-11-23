@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>四性检测</title>
+    <script src="echarts/echarts.min.js"></script>
+</head>
+<body>
+    <!-- 为 ECharts 准备一个具备大小（宽高）的 DOM -->
+    <div id="main" style="width: 600px;height:400px;"></div>
+    <script>
+        // 基于准备好的dom，初始化echarts实例
+        var myChart = echarts.init(document.getElementById('main'));
+
+        myChart.setOption({
+            series : [
+                {
+                    name: '访问来源',
+                    type: 'pie',    // 设置图表类型为饼图
+                    radius: '55%',  // 饼图的半径，外半径为可视区尺寸（容器高宽中较小一项）的 55% 长度。
+                    data:[          // 数据数组，name 为数据项名称，value 为数据项值
+                        {value:9, name:'真实性'},
+                        {value:4, name:'完整性'},
+                        {value:2, name:'可用性'},
+                        {value:3, name:'安全性'},
+                    ]
+                }
+            ]
+        })
+    </script>
+</body>
+</html>

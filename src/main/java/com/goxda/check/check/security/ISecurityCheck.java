@@ -13,7 +13,7 @@ public interface ISecurityCheck {
      * @param filepath 文件绝对路径
      * @return 是否通过
      */
-    Map<String,String> virusOfArchivePackageDetection(String filepath);
+    Map<String,String> virusOfDetection(String filepath);
     /**
      * 归档载体安全性检测
      * @return 是否通过

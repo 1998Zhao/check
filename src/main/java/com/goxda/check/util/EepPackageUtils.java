@@ -1,12 +1,18 @@
 package com.goxda.check.util;
 
 import cn.hutool.core.io.FileUtil;
+import cn.hutool.core.util.ArrayUtil;
+import cn.hutool.core.util.StrUtil;
 import com.alibaba.druid.util.Base64;
 import com.goxda.check.encapsulation.*;
 import com.goxda.check.metadate.IMetadata;
+import org.apache.poi.ss.formula.functions.T;
 
 import java.io.File;
 import java.io.IOException;
+import java.lang.reflect.Field;
+import java.lang.reflect.InvocationTargetException;
+import java.lang.reflect.Method;
 import java.security.InvalidKeyException;
 import java.security.NoSuchAlgorithmException;
 import java.security.SignatureException;
@@ -27,13 +33,8 @@ public class EepPackageUtils {
      * 此处打包 可将归档的n个条目下的n个电子文件打包
      * @param folders 对应的条目id数组
      * @param type 类型
-     * @throws IOException
-     * @throws InvalidKeySpecException
-     * @throws NoSuchAlgorithmException
-     * @throws InvalidKeyException
-     * @throws SignatureException
      */
-    public static void packageIt(String [] folders, List<IMetadata> metadata,String type) throws IOException, InvalidKeySpecException, NoSuchAlgorithmException, InvalidKeyException, SignatureException, IllegalAccessException, InstantiationException {
+    public static void packageIt(String [] folders, IMetadata m,String type) throws IOException, IllegalAccessException, NoSuchMethodException, InvocationTargetException, NoSuchFieldException {
         ElectronicDocumentsEncapsulationPackage pkg = new ElectronicDocumentsEncapsulationPackage();
         pkg.setVersion("2009");
         pkg.setFormatDescription("本EEP根据中华人民共和国档案行业标准DA/T 48-2009《基于XML的电子文件封装规范》生成");
@@ -47,28 +48,31 @@ public class EepPackageUtils {
         so.setPackageCreationTime(LocalDateTime.now().format(DateTimeFormatter.ofPattern("yyyy-MM-ddThh:mm:ss")));
         EncapsulationContent content;
         ModifiedEncapsulationContent mc;
+        AgentEntityBlock aeb;
+        AgentEntity agentEntity;
+        AgentEntityRelation agentEntityRelation;
+        RecordEntityBlock recordEntityBlock;
+        BusinessEntityBlock businessEntityBlock;
+        List<AgentEntity> agentEntities = new ArrayList<>();
+        List<Object> objects = new ArrayList<>();
         if ("原始型".equals(type)){
-            for (int i = 0; i < metadata.size(); i++) {
-                IMetadata m = metadata.get(i);
-                
-
-            }
-            so.setType(PackageEnum.PRIMITIVE);
             content = new EncapsulationContent();
-            AgentEntityBlock aeb = new AgentEntityBlock();
-            AgentEntity ae = new AgentEntity();
-            ae.setAgentName("");
-            aeb.setAgentEntity(ae);
+            aeb = new AgentEntityBlock();
+            agentEntity = new AgentEntity();
+            agentEntityRelation = new AgentEntityRelation();
+            aeb.setAgentEntity(agentEntities);
+            recordEntityBlock = new RecordEntityBlock();
+            businessEntityBlock = new BusinessEntityBlock();
+            content.setBusinessEntityBlock(businessEntityBlock);
+            content.setRecordEntityBlock(recordEntityBlock);
             content.setAgentEntityBlock(aeb);
-
         }
         else {
             so.setType(PackageEnum.MODIFIED);
             mc = new ModifiedEncapsulationContent();
 
         }
-        //此处模拟 文件夹获取
-        //List<String> folders = getAllFolder("folder");
+        so.setType(PackageEnum.PRIMITIVE);
         List<String> files = new ArrayList<>();
         for (String s : folders) {
             files.addAll(getAllFiles(s));
@@ -96,8 +100,28 @@ public class EepPackageUtils {
             encoding.setEncodingData(v);
             encodings.add(encoding);
         }
-
-
+    }
+    public static String getMetadataValue(IMetadata m,String key) throws NoSuchMethodException, InvocationTargetException, IllegalAccessException, NoSuchFieldException {
+        Field f = m.getClass().getField(key);
+        return (String) f.get(m);
+    }
+    public static void setValue(IMetadata m, Object o ) throws NoSuchMethodException, IllegalAccessException, InvocationTargetException, NoSuchFieldException, InstantiationException {
+        Field[] fields = o.getClass().getDeclaredFields();
+        String fieldName,v;
+        Field[] f = m.getClass().getDeclaredFields();
+        for (Field field : fields) {
+            if (ArrayUtil.contains(f,field.getName())){
+                fieldName = field.getName();
+                v = getMetadataValue(m,fieldName);
+                field.set(o,v);
+            }
+            else {
+                Class<?> type = field.getType();
+                if (!type.equals(String.class)){
+                    setValue(m,type.newInstance());
+                }
+            }
+        }
     }
     public static List<String> getAllFolder(String folder) throws IOException {
         File file = new File(folder);
@@ -126,6 +150,5 @@ public class EepPackageUtils {
     }
 
     public static void main(String[] args) {
-
     }
 }

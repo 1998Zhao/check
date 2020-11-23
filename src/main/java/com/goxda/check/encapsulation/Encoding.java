@@ -2,8 +2,6 @@ package com.goxda.check.encapsulation;
 
 import lombok.Data;
 
-import java.util.List;
-
 /**
  * M46 电子属性
  * M52 数字化属性

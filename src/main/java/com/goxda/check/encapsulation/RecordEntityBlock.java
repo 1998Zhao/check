@@ -11,5 +11,5 @@ import java.util.List;
 @Data
 public class RecordEntityBlock {
     RecordEntity recordEntity;
-    RecordEntitiesRelation recordEntitiesRelation;
+    List<RecordEntitiesRelation> recordEntitiesRelations;
 }

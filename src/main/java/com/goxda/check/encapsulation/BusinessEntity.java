@@ -11,9 +11,10 @@ import lombok.Data;
  *─M82 行为时间
  *─M83 行为依据
  *─M84 行为描述
+ * @author zgq
  */
 @Data
-public class businessEntity {
+public class BusinessEntity {
     private String businessEntityIdentifier;
     private String agentEntityIdentifier;
     private String recordIdentifier;
